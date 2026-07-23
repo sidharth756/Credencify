@@ -1,1 +1,1 @@
-Block Chain Based Credencial Verification System - Credencify✔️
+Block Chain Based Credential Verification System - Credencify✔️
