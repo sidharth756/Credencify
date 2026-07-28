@@ -12,25 +12,16 @@ function HeroSection() {
           Welcome Back to Credify
         </h1>
 
-
         <p>
           Empowering trust through blockchain secured
           credentials and instant verification.
         </p>
-
-
         <FeatureList />
 
       </div>
-
-
-
       <div className={styles.right}>
-
         <LoginCard />
-
       </div>
-
 
     </section>
 

@@ -1,159 +1,82 @@
 .card {
-
     background: white;
-
     width: 100%;
-
     max-width: 420px;
-
     padding: 40px;
-
     border-radius: 20px;
-
     box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-
 }
-
-
 
 .card h2 {
-
     text-align: center;
-
     font-size: 32px;
-
     color: #173b6d;
-
     margin-bottom: 10px;
-
 }
-
-
 
 .subtitle {
-
     text-align:center;
-
     color:#6b7280;
-
     margin-bottom:30px;
-
 }
-
-
 
 .card form {
-
     display:flex;
-
     flex-direction:column;
-
 }
-
-
-
 .card label {
-
     font-size:14px;
-
     color:#374151;
-
     margin-bottom:8px;
-
 }
-
-
-
 .card input[type="email"],
 .card input[type="password"] {
-
     height:45px;
-
     border:1px solid #d1d5db;
-
     border-radius:8px;
-
     padding:0 14px;
-
     font-size:15px;
-
     margin-bottom:20px;
-
 }
-
-
 
 .options {
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin-bottom:25px;
-
 }
-
-
 
 .remember {
-
     display:flex;
-
     align-items:center;
-
     gap:8px;
-
 }
-
-
 
 .options a,
 .register a {
-
     color:#2563eb;
-
     text-decoration:none;
-
 }
 
-
-
 .signButton {
-
     height:48px;
-
     border:none;
-
     border-radius:8px;
-
     background:#1e5aa8;
-
     color:white;
-
     font-size:16px;
-
     cursor:pointer;
-
 }
 
 
 
 .divider {
-
     display:flex;
-
     align-items:center;
-
     gap:12px;
-
     margin:25px 0;
-
     color:#9ca3af;
-
     font-size:14px;
-
 }
 
 
