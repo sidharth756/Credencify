@@ -11,39 +11,31 @@ function LoginCard() {
         Sign In
       </h2>
 
-
       <p className={styles.subtitle}>
         Welcome back! Please enter your details.
       </p>
 
-
       <form>
-
         <label>Email</label>
-
         <input type="email" placeholder="Enter your email"/>
 
         <label>Password</label>
-
         <input
           type="password"
           placeholder="Enter your password"
         />
 
         <div className={styles.options}>
-
           <label className={styles.remember}>
             <input type="checkbox"/>
             Remember me
           </label>
-
 
           <a href="#">
             Forgot password?
           </a>
 
         </div>
-
         <button className={styles.signButton}>
           Sign In
         </button>
@@ -76,11 +68,7 @@ function LoginCard() {
           </p>
 
       </form>
-
-
     </div>
   );
 }
-
-
 export default LoginCard;
