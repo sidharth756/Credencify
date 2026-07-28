@@ -11,7 +11,6 @@ function Welcome() {
 
       <main className={styles.container}>
         <HeroSection />
-        <LoginCard />
       </main>
     </>
   );
