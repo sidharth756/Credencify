@@ -1,19 +1,20 @@
-import NavBar from "../../components/Navbar";
-import HeroSection from "../../components/HeroSection";
-import LoginCard from "../../components/LoginCard";
-// import "../styles/SignIn.css";
+import NavBar from "../../components/Navbar.jsx";
+import HeroSection from "../../components/HeroSection/HeroSection.jsx";
+import LoginCard from "../../components/LoginCard/LoginCard.jsx";
 
-function SignIn() {
-  return (
-    <>
-      <NavBar />
 
-      <div className="signin-page">
-        <HeroSection />
-        <LoginCard/>
-      </div>
-    </>
-  );
+function SignIn(){
+
+    return(
+        <div className={styles.page}>
+
+            <Navbar/>
+
+            <LoginCard/>
+
+        </div>
+    )
 }
+
 
 export default SignIn;
