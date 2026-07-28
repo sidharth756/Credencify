@@ -1,4 +1,3 @@
-import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Register.module.css";
 
 import { FaUserCircle } from "react-icons/fa";
@@ -8,9 +7,7 @@ import { FaGraduationCap } from "react-icons/fa";
 function Register() {
   return (
     <>
-      <Navbar />
-
-      <main className={styles.container}>
+        <div className={styles.container}>
         <div className={styles.card}>
 
           <div className={styles.icon}>
@@ -130,9 +127,8 @@ function Register() {
             Have an account?
             <a href="#"> Sign In</a>
           </p>
-
+          </div>
         </div>
-      </main>
     </>
   );
 }
