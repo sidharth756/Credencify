@@ -1,7 +1,6 @@
 import HeroSection from "../../components/HeroSection/HeroSection.jsx";
 import LoginCard from "../../components/LoginCard/LoginCard.jsx";
-import Navbar from "../../components/Navbar.jsx";
-
+import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Welcome.module.css";
 
 function Welcome() {
