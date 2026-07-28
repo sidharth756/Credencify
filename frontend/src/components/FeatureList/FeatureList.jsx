@@ -12,15 +12,12 @@ function FeatureList() {
 
     return (
         <div className={styles.features}>
-
             {
                 features.map((feature, index) => (
-
                     <div 
                         key={index} 
                         className={styles.featureItem}
                     >
-
                         <span className={styles.check}>
                             ✓
                         </span>
@@ -30,13 +27,9 @@ function FeatureList() {
                         </p>
 
                     </div>
-
                 ))
             }
-
         </div>
     );
 }
-
-
 export default FeatureList;

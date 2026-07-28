@@ -1,6 +1,5 @@
 import FeatureList from "../FeatureList/FeatureList";
 import LoginCard from "../LoginCard/LoginCard";
-
 import styles from "./HeroSection.module.css";
 
 
