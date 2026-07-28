@@ -1,22 +1,20 @@
-import Navbar from "../../components/Navbar/Navbar";
-import HeroSection from "../../components/HeroSection/HeroSection";
+import HeroSection from "../../components/HeroSection/HeroSection.jsx";
+import LoginCard from "../../components/LoginCard/LoginCard.jsx";
+import Navbar from "../../components/Navbar.jsx";
+
 import styles from "./Welcome.module.css";
 
+function Welcome() {
+  return (
+    <>
+      <Navbar />
 
-function Welcome(){
-
- return(
-
-    <div className={styles.page}>
-
-       <Navbar/>
-       <HeroSection/>
-
-    </div>
-
- );
-
+      <main className={styles.container}>
+        <HeroSection />
+        <LoginCard />
+      </main>
+    </>
+  );
 }
-
 
 export default Welcome;

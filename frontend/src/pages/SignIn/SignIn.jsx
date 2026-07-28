@@ -1,6 +1,6 @@
-import Navbar from "../../components/Navbar/Navbar";
-import LoginCard from "../../components/LoginCard/LoginCard";
-import styles from "./SignIn.module.css";
+import NavBar from "../../components/Navbar.jsx";
+import HeroSection from "../../components/HeroSection/HeroSection.jsx";
+import LoginCard from "../../components/LoginCard/LoginCard.jsx";
 
 
 function SignIn(){
