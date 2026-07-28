@@ -1,4 +1,6 @@
 import styles from "./LoginCard.module.css";
+import { FcGoogle } from "react-icons/fc";
+import { FaMicrosoft } from "react-icons/fa";
 
 function LoginCard() {
 
@@ -17,25 +19,16 @@ function LoginCard() {
 
       <form>
 
-        <label>
-          Email
-        </label>
+        <label>Email</label>
 
-        <input 
-          type="email"
-          placeholder="Enter your email"
-        />
+        <input type="email" placeholder="Enter your email"/>
 
-
-        <label>
-          Password
-        </label>
+        <label>Password</label>
 
         <input
           type="password"
           placeholder="Enter your password"
         />
-
 
         <div className={styles.options}>
 
@@ -51,36 +44,36 @@ function LoginCard() {
 
         </div>
 
-
         <button className={styles.signButton}>
           Sign In
         </button>
 
-
         <div className={styles.divider}>
-          <span></span>
-          OR
-          <span></span>
+          <span></span>OR<span></span>
         </div>
 
-
         <button className={styles.socialButton}>
-          Continue with Google
-        </button>
+              <img
+                  src="https://img.icons8.com/color/48/google-logo.png"
+                  alt="Google"
+                  className={`${styles.logoimg} ${styles.googleIcon}`}
+              />
+              <span>Continue with Google</span>
+          </button>
 
+          <button className={styles.socialButton}>
+              <img
+                  src="https://img.icons8.com/color/48/microsoft.png"
+                  alt="Microsoft"
+                 className={`${styles.logoimg} ${styles.microsoftIcon}`}
+              />
+              <span className={styles.mcText}>Continue with Microsoft</span>
+          </button>
 
-        <button className={styles.socialButton}>
-          Continue with Microsoft
-        </button>
-
-
-        <p className={styles.register}>
-          Don't have an account?
-          <a href="#">
-            Register
-          </a>
-        </p>
-
+          <p className={styles.register}>
+            Don't have an account?
+            <a href="#">Register</a>
+          </p>
 
       </form>
 
