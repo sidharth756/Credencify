@@ -8,12 +8,7 @@ import {
   FaDatabase,
 } from "react-icons/fa";
 
-import certificate from "./assets/certificate.png";
-import blockchain from "./assets/blockchain.png";
-import ai from "./assets/ai.png";
-import qr from "./assets/qr.png";
-import ipfs from "./assets/ipfs.png";
-import security from "./assets/security.png";
+import certificate from "./assets/certificate.svg";
 
 const AboutUs = () => {
   return (
@@ -43,7 +38,6 @@ const AboutUs = () => {
         </div>
 
         {/* Mission Vision */}
-
         <div className={styles.cards}>
           <div className={styles.card}>
             <h3>Our Mission</h3>
@@ -67,7 +61,6 @@ const AboutUs = () => {
         </div>
 
         {/* Trust Gap */}
-
         <div className={styles.trust}>
           <h2>The Trust Gap in Digital Credentials</h2>
 
@@ -78,31 +71,30 @@ const AboutUs = () => {
         </div>
 
         {/* Powered By */}
-
         <div className={styles.powered}>
           <h3>Powered by Secure Technologies</h3>
 
           <div className={styles.techGrid}>
             <div className={styles.techCard}>
-              <img src={blockchain} alt="" />
+              <FaDatabase className={styles.icon} />
               <h4>Blockchain</h4>
               <p>Tamper-proof decentralized records.</p>
             </div>
 
             <div className={styles.techCard}>
-              <img src={ai} alt="" />
+              <FaShieldAlt className={styles.icon} />
               <h4>AI</h4>
               <p>Fraud risk analysis.</p>
             </div>
 
             <div className={styles.techCard}>
-              <img src={qr} alt="" />
+              <FaCheckCircle className={styles.icon} />
               <h4>QR Verify</h4>
               <p>Instant authenticity checks.</p>
             </div>
 
             <div className={styles.techCard}>
-              <img src={ipfs} alt="" />
+              <FaGlobe className={styles.icon} />
               <h4>IPFS</h4>
               <p>Decentralized certificate storage.</p>
             </div>
@@ -110,7 +102,6 @@ const AboutUs = () => {
         </div>
 
         {/* Why Blockchain */}
-
         <div className={styles.blockchainSection}>
           <div className={styles.features}>
             <h2>WHY BLOCKCHAIN BASED VERIFICATION?</h2>
@@ -133,14 +124,9 @@ const AboutUs = () => {
               <p>No dependence on manual approval.</p>
             </div>
           </div>
-
-          <div className={styles.imageBox}>
-            <img src={security} alt="" />
-          </div>
         </div>
 
         {/* Bottom */}
-
         <div className={styles.bottomGrid}>
           <div>
             <FaBolt className={styles.bottomIcon} />
@@ -162,9 +148,8 @@ const AboutUs = () => {
         </div>
 
         {/* Institutions */}
-
         <div className={styles.institutions}>
-          <h4>Our trusted Institutions</h4>
+          <h4>Our Trusted Institutions</h4>
 
           <div className={styles.logoRow}>
             <span>Udemy</span>
