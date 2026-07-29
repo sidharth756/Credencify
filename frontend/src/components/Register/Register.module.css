@@ -1,0 +1,189 @@
+.container{
+    min-height:calc(100vh - 80px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f8fafc;
+    padding:60px 20px;
+}
+
+.card{
+    width:760px;
+    background:white;
+    border-radius:18px;
+    padding:40px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.icon{
+    width:55px;
+    height:0px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    color:#2563eb;
+    font-size:58px;
+}
+
+.card h1{
+    text-align:center;
+    margin-top:18px;
+    color:#1E3A5F;
+}
+
+.subtitle{
+    text-align:center;
+    color:#6b7280;
+    margin-top:10px;
+}
+
+.roleSection{
+    margin-top:25px;
+}
+
+.roleTitle{
+    text-align:center;
+    margin-bottom:12px;
+    font-size:14px;
+}
+
+.roleButtons{
+    display:flex;
+    gap:15px;
+}
+
+.roleBtn{
+    flex:1;
+    padding:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    border:1px solid #d1d5db;
+    background:white;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.active{
+    border:2px solid #2563eb;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+.form{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.inputGroup{
+    display:flex;
+    flex-direction:column;
+}
+
+.inputGroup label{
+    margin-bottom:6px;
+    font-size:14px;
+}
+
+.inputGroup input{
+    height:42px;
+    padding:0 12px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+}
+
+.checkbox{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+    font-size:14px;
+}
+
+.checkbox a{
+    color:#2563eb;
+    text-decoration:none;
+}
+
+.createBtn{
+    width:100%;
+    height:46px;
+    margin-top:20px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.divider{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:20px 0;
+    color:#6b7280;
+    font-size:14px;
+}
+
+.divider span{
+    flex:1;
+    height:1px;
+    background:#d1d5db;
+}
+
+.socialButtons{
+    display:flex;
+    gap:15px;
+}
+
+.socialButton{
+    flex:1;
+    height:45px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+
+    border:1px solid #d1d5db;
+    background:white;
+    border-radius:8px;
+
+    cursor:pointer;
+    font-size:15px;
+    font-weight:500;
+}
+
+.logoImg{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+    display:block;
+}
+
+.googleIcon{
+    transform:translateX(0px);
+}
+
+.microsoftIcon{
+    transform:translateX(6px);
+}
+
+.microsoftText{
+    transform:translateX(4px);
+}
+
+.bottomText{
+    margin-top:20px;
+    text-align:center;
+}
+
+.bottomText a{
+    color:#2563eb;
+    text-decoration:none;
+}

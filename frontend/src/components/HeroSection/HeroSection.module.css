@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=League+Spartan:wght@100..900&family=Lexend+Deca:wght@100..900&family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanchenjunga:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+.hero {
+    min-height: auto;
+    display: flex;
+    
+    gap: 32px;
+    padding: 20px 40px;
+    padding-left: 90px;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+    width: 100%;
+}
+
+.left {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+}
+
+.left h1 {
+    font-size: 46px;
+    color: #173b6d;
+    font-family: "Kanchenjunga", sans-serif;
+
+}
+
+.left p {
+    font-size: 23px;
+    font-family: "K2D";
+    color: #374151;
+    line-height: 1.5;
+    width: 100%;
+    max-width: 680px;
+}
+
+.right{
+    width: 400px;
+    max-width: 420px;
+    flex: 0 0 380px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.featureList p{
+    font-size: 25px;
+    font-family: "League Spartan";
+}
+
+/* -------- The below are is only for Reponsive Css (The above is alorted for Normal css) --------*/
+
+
+
+@media (max-width: 900px) {
+    .hero{
+        flex-direction: column;
+        padding: 16px;
+        align-items: center;
+    }
+    .left,.right{
+        width: 100%;
+    }
+    .right{
+        order: 2;
+    }
+}

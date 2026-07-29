@@ -1,20 +1,17 @@
-import { useState } from 'react'
-import NavBar from './components/Navbar'// import viteLogo from './assets/vite.svg'
-import SignIn from "./pages/SignIn";
-// import heroImg from './assets/hero.png'
+import {Routes,Route} from "react-router-dom"
 import './App.css'
-import Welcome from "./pages/Welcome";
+import HeroSection from './components/HeroSection/HeroSection'
+import LoginCard from './components/LoginCard/LoginCard'
+import NavBar from './components/Navbar/Navbar'
+import Welcome from './pages/Welcome/Welcome'
+import Register from './pages/Register/Register'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      {/* <SignIn /> */}
-      {/* <div>Credencify</div> */}
-      <Welcome />
-      {/* <NavBar /> */}
-    </>
+    <Routes>
+      <Route path="/" element={<Welcome/>}/>
+      <Route path="/register" element={<Register/>}/>
+    </Routes>
   )
 }
 

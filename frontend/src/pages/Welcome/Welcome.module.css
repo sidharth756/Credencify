@@ -1,0 +1,20 @@
+.container{
+    width:100%;
+    min-height:calc(100vh-80px);
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding: 70px 190px 70px 100px;
+    background:#f7fafc;
+}
+
+/* -------- The below are is only for Reponsive Css (The above is alorted for Normal css) --------*/
+
+@media (max-width: 900px){
+        .container{
+            flex-direction: column;
+            padding: 20px;
+            align-items: center;
+            gap: 45px;
+        }
+}
