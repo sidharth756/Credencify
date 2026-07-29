@@ -15,6 +15,8 @@ function App() {
       <Route path="/register" element={<Register/>}/>
       <Route path="/about" element={<AboutUs/>}/>
     </Routes>
+
+    <AboutUs/>
     </>
 
   )
