@@ -41,7 +41,7 @@ function LoginCard() {
         </button>
 
         <div className={styles.divider}>
-          <span></span>OR<span></span>
+          <span></span>Or Sign in with<span></span>
         </div>
 
         <button className={styles.socialButton}>
@@ -64,7 +64,7 @@ function LoginCard() {
 
           <p className={styles.register}>
             Don't have an account?
-            <a href="#">Register</a>
+            <a href="/register"> Register</a>
           </p>
 
       </form>

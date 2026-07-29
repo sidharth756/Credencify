@@ -15,8 +15,9 @@ function HeroSection() {
           Empowering trust through blockchain secured
           credentials and instant verification.
         </p>
-        <FeatureList />
-
+        <div className={styles.featureList}>
+            <FeatureList />
+        </div>
       </div>
       <div className={styles.right}>
         <LoginCard />

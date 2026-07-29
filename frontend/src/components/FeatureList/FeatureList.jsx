@@ -19,7 +19,7 @@ function FeatureList() {
                         className={styles.featureItem}
                     >
                         <span className={styles.check}>
-                            ✓
+                            <img width="48" height="48" src="https://img.icons8.com/material-outlined/48/16a34a/checked--v1.png" alt="checked--v1"/>
                         </span>
 
                         <p>

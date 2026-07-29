@@ -7,7 +7,7 @@ function NavBar() {
           <h2>Credencify</h2>
       </div>
         <nav className={styles.navlinks}>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
             <a href="#">Contact</a>
             <a href="#">Verify Credential</a>
             <a href="#">About us</a>
