@@ -1,0 +1,11 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+}
