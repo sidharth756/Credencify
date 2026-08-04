@@ -7,7 +7,6 @@ function Contact() {
     <>
       <Navbar />
       <ContactForm />
-      <ChatWithUS />
     </>
   );
 }

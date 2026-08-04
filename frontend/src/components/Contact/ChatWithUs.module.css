@@ -56,3 +56,28 @@
   color: #111;
 }
 
+.icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .section h2 {
+    font-size: 20px;
+  }
+
+  .subtitle,
+  .link a,
+  .phone,
+  .address {
+    font-size: 16px;
+  }
+}
