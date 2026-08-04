@@ -5,19 +5,16 @@ import LoginCard from './components/LoginCard/LoginCard'
 import NavBar from './components/Navbar/Navbar'
 import Welcome from './pages/Welcome/Welcome'
 import Register from './pages/Register/Register'
-import AboutUs from "./pages/AboutUs/AboutUs"
+import Contact from './pages/Contact/Contact'
 
 function App() {
   return (
-    <>
     <Routes>
-      <Route path="/" element={<Welcome/>}/>
-      <Route path="/register" element={<Register/>}/>
-      <Route path="/about" element={<AboutUs/>}/>
+      <Route path="/" element={<Welcome />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
-    </>
-
-  )
+  );
 }
 
 export default App
