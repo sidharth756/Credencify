@@ -42,11 +42,8 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-    public CorsFilter corsFilter(){
-        return CorsFilter(corsConfigurationSource());
-    }
 
-    private CorsConfigurationSource corsConfigurationSource(){
-        CorsConfiguration config = new CorsConfiguration();
-    }
+//    private CorsConfigurationSource corsConfigurationSource(){
+//        CorsConfiguration config = new CorsConfiguration();
+//    }
 }

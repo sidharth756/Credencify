@@ -8,8 +8,6 @@ import {
   FaDatabase,
 } from "react-icons/fa";
 
-import certificate from "./assets/certificate.svg";
-
 const AboutUs = () => {
   return (
     <section className={styles.aboutSection}>
