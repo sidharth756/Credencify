@@ -12,6 +12,7 @@ public class CredentialController {
     @PostMapping
     public ResponseEntity<String> issueCertificate(@RequestBody CredentialRequest req){
         String combined = req.getCertificateId() + "|" + req.getLeanerName() +"|" + req.getCourseName() + "|" + req.getInstitutionName();
+        System.out.println("Combined String : " + combined);
         return ResponseEntity.ok("Combined String: " + combined);
     }
 }

@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/services/credential-service/pom.xml" />
+        <option value="$PROJECT_DIR$/services/blockchain-service/pom.xml" />
       </list>
     </option>
   </component>
