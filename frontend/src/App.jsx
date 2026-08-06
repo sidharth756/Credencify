@@ -10,7 +10,7 @@ import InstitutionPortal from "./pages/InstitutionPortal/InstitutionPortal";
 
 function App() {
   return (
-    <Ro utes>
+    <Routes>
       <Route path="/" element={<Welcome />} />
       <Route path="/register" element={<Register />} />
       <Route path="/contact" element={<Contact />} />
