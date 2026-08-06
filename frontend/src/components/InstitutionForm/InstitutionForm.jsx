@@ -7,7 +7,7 @@ export default function InstitutionForm() {
         certificateId: "",
         learnerName: "",
         courseName: "",
-        institution: ""
+        institutionName: ""
     });
 
     const handleChange = (e) => {
@@ -62,11 +62,11 @@ export default function InstitutionForm() {
                 <label>Learner Name</label>
 
                 <input
-                    type="text" name="learnerName" placeholder="e.g. Alex Rivera"
-                    value={formData.learnerName} onChange={handleChange} required
+                    type="text" name="leanerName" placeholder="e.g. Alex Rivera"
+                    value={formData.leanerName} onChange={handleChange} required
                 />
 
-                <label>Course / Degree Name</label>
+                <label>Course Name</label>
 
                 <input
                     type="text" name="courseName"  placeholder="e.g. Full Stack Web Development"
@@ -77,8 +77,8 @@ export default function InstitutionForm() {
                 <label>Institution Name</label>
 
                 <input
-                    type="text" name="institution" placeholder="e.g. Harvard University"
-                    value={formData.institution} onChange={handleChange} required
+                    type="text" name="institutionName" placeholder="e.g. Harvard University"
+                    value={formData.institutionName} onChange={handleChange} required
                 />
 
                 <button className={styles.button} type="submit">
