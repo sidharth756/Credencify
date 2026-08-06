@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./InstitutionForm.css";
+import styles from "./InstitutionForm.module.css";
 
 export default function InstitutionForm() {
 
@@ -45,14 +45,14 @@ export default function InstitutionForm() {
 
     return (
 
-        <div className="container">
+        <div className={styles.container}>
             <h1>Institution Portal</h1>
             <p>
                 Issue verifiable credentials by recording SHA-256 hashes
                 on the Credencify Blockchain
             </p>
 
-            <form onSubmit={handleSubmit}>
+            <form className={styles.form} onSubmit={handleSubmit}>
                 <label>Certificate ID</label>
 
                 <input type="text" name="certificateId" placeholder="e.g. 1001"
@@ -81,7 +81,7 @@ export default function InstitutionForm() {
                     value={formData.institution} onChange={handleChange} required
                 />
 
-                <button type="submit">
+                <button className={styles.button} type="submit">
                     Issue Credential
                 </button>
 
