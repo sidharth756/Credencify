@@ -1,0 +1,167 @@
+.container {
+  min-height: 100vh;
+  background: #f5f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.card {
+  width: 430px;
+  background: white;
+  border-radius: 18px;
+  padding: 35px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+.icon {
+  width: 65px;
+  height: 65px;
+  margin: auto;
+  border-radius: 50%;
+  background: #e8f0ff;
+  color: #2c5aa0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+h2 {
+  margin-top: 20px;
+  text-align: center;
+  color: #1f3b73;
+  font-family: "Outfit", sans-serif;
+}
+
+.subtitle {
+  text-align: center;
+  color: #7a8ca5;
+  font-size: 14px;
+  margin: 12px 0 20px;
+  font-family: "Outfit", sans-serif;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-family: "Outfit", sans-serif;
+}
+
+.inputBox {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.inputBox input {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  outline: none;
+  font-size: 14px;
+  font-family: "Outfit", sans-serif;
+}
+
+.copyBtn {
+  width: 45px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: "Outfit", sans-serif;
+}
+
+small {
+  display: block;
+  color: gray;
+  margin-top: 8px;
+  margin-bottom: 22px;
+  font-family: "Outfit", sans-serif;
+}
+
+.verifyBtn {
+  width: 100%;
+  background: #1d5cb5;
+  color: white;
+  border: none;
+  padding: 13px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: "Outfit", sans-serif;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.verifyBtn:hover {
+  background: #154a92;
+}
+
+.or {
+  margin: 22px 0;
+  text-align: center;
+  position: relative;
+}
+
+.or::before,
+.or::after {
+  content: "";
+  position: absolute;
+  width: 42%;
+  height: 1px;
+  background: #ddd;
+  top: 50%;
+}
+
+.or::before {
+  left: 0;
+}
+
+.or::after {
+  right: 0;
+}
+
+.or span {
+  background: white;
+  padding: 0 12px;
+  color: gray;
+}
+
+.qrBtn {
+  width: 100%;
+  background: #1d5cb5;
+  color: white;
+  border: none;
+  padding: 13px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: "Outfit", sans-serif;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.qrBtn:hover {
+  background: #154a92;
+}
+
+.footer {
+  margin-top: 25px;
+  text-align: center;
+  color: gray;
+  font-size: 12px;
+  font-family: "Outfit", sans-serif;
+}

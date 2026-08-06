@@ -53,3 +53,36 @@
 .contact button:hover {
   background: #193b5d;
 }
+
+.contactContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.formContainer {
+  flex: 2;
+}
+
+.chatContainer {
+  flex: 1;
+  max-width: 320px;
+}
+
+@media (max-width: 900px) {
+  .contactContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .formContainer,
+  .chatContainer {
+    width: 100%;
+    max-width: 700px;
+  }
+}

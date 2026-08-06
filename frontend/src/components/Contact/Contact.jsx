@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Contact.module.css";
+import ChatWithUS from "./ChatWithUs";
 
 function Contact() {
   const [firstName, setFirstName] = useState("");
@@ -7,63 +8,65 @@ function Contact() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+
   return (
-    <div className={styles.contact}>
-     
-      <label For="firstName">First Name</label>
+    <div className={styles.contactContainer}>
+   
+      <div className={styles.formContainer}>
+        <div className={styles.contact}>
+          <label htmlFor="firstName">First Name</label>
+          <input
+            id="firstName"
+            type="text"
+            placeholder="First Name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
 
-      <input
-        id="firstName"
-        type="text"
-        placeholder="First name"
-        value={firstName}
-        onChange={(e) => setFirstName(e.target.value)}
-      />
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            id="lastName"
+            type="text"
+            placeholder="Last Name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
 
-       <label For="lastName">Last Name</label>
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="you@company.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-      <input
-        id="lastName"
-        type="text"
-        placeholder="Last name"
-        value={lastName}
-        onChange={(e) => setLastName(e.target.value)}
-      />
+          <label htmlFor="phone">Phone Number</label>
+          <input
+            id="phone"
+            type="tel"
+            placeholder="+91 XXXXX XXXXX"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
 
-        <label For="email">Email</label>
+          <label htmlFor="message">Message</label>
+          <input
+            id="message"
+            type="text"
+            placeholder="Leave us a message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
 
-      <input
-        id="email"
-        type="email"
-        placeholder="you@company.com"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+          <button type="submit">Send</button>
+        </div>
+      </div>
 
-      <label For="phone number">Phone Number</label>
-
-      <input
-        id="phone number"
-        type="tel"
-        placeholder="+91 XXXXX XXXXX"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-      />
-
-      <label For="Message">Message</label>
-
-      <input
-        id="message"
-        type="text"
-        placeholder="Leave us a message"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-
-        <button type="submit">Send</button>
       
-      
-
+      <div className={styles.chatContainer}>
+        <ChatWithUS />
+      </div>
     </div>
   );
 }
