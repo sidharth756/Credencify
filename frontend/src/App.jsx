@@ -6,6 +6,7 @@ import NavBar from './components/Navbar/Navbar'
 import Welcome from './pages/Welcome/Welcome'
 import Register from './pages/Register/Register'
 import Contact from './pages/Contact/Contact'
+import InstitutionPortal from "./pages/InstitutionPortal/InstitutionPortal";
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
       <Route path="/" element={<Welcome />} />
       <Route path="/register" element={<Register />} />
       <Route path="/contact" element={<Contact />} />
-    </Ro>
+      <Route path="/mod/institution" element={<InstitutionPortal />} />
+    </Routes>
+
   );
 }
 
