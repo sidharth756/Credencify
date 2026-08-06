@@ -6,8 +6,8 @@ import NavBar from './components/Navbar/Navbar'
 import Welcome from './pages/Welcome/Welcome'
 import Register from './pages/Register/Register'
 import Contact from './pages/Contact/Contact'
-import Verify from './pages/Verify/Verify'
 import VerifyPage from "./pages/Verify/Verify"
+import InstitutionPortal from "./pages/InstitutionPortal/InstitutionPortal";
 
 function App() {
   return (
@@ -16,7 +16,9 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/verify" element={<VerifyPage />} />
+      <Route path="/mod/institution" element={<InstitutionPortal />} />
     </Routes>
+
   );
 }
 
