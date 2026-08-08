@@ -23,7 +23,7 @@ export default function InstitutionForm() {
         try {
 
             const response = await fetch(
-                "http://localhost:8080/api/certificates",
+                "http://localhost:8051/api/certificates",
                 {
                     method: "POST",
                     headers: {

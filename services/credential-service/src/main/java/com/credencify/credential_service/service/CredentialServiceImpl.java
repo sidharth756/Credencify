@@ -3,10 +3,8 @@ package com.credencify.credential_service.service;
 import com.credencify.credential_service.dto.request.CertificateRequest;
 import com.credencify.credential_service.dto.request.StoreHashRequest;
 import com.credencify.credential_service.dto.response.StoreHashResponse;
+import com.credencify.credential_service.dto.response.VerifyHashResponse;
 import com.credencify.credential_service.feignclients.BlockchainClient;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 
@@ -53,5 +51,10 @@ public class CredentialServiceImpl implements CredentialService{
         return hash;
     }
 
+    @Override
+    public VerifyHashResponse verify(String certificateId){
+        VerifyHashResponse response = blockchainClient.getHash(certificateId);
+        return response;
+    }
 
 }

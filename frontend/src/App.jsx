@@ -15,7 +15,7 @@ function App() {
       <Route path="/" element={<Welcome />} />
       <Route path="/register" element={<Register />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/verify" element={<VerifyPage />} />
+      <Route path="/mod/verify" element={<VerifyPage />} />
       <Route path="/mod/institution" element={<InstitutionPortal />} />
     </Routes>
 
