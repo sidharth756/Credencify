@@ -21,7 +21,7 @@ function Verify() {
       setCertificate(null);
 
       const response = await fetch(
-        `http://localhost:8051/api/certificates/${certificateId}`,
+        `http://${import.meta.env.VITE_API_HOST}:8051/api/certificates/${certificateId}`,
         {
           method: "GET",
           headers: {
@@ -71,7 +71,7 @@ function Verify() {
           />
 
           <button className={styles.copyBtn}>
-            
+
           </button>
         </div>
 
@@ -86,7 +86,7 @@ function Verify() {
           Verify Credential <FaSearch />
         </button>
 
-       
+
         {loading && <p>Verifying...</p>}
 
         {error && (

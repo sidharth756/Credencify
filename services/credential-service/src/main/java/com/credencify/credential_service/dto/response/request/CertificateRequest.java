@@ -1,17 +1,18 @@
-package com.credencify.credential_service.dto.request;
+package com.credencify.credential_service.dto.response.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigInteger;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class StoreHashRequest {
+public class CertificateRequest {
     private String certificateId;
-    private String hash;
+    private String learnerName;
+    private String courseName;
+    private String institutionName;
+
 }

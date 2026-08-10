@@ -1,4 +1,4 @@
-package com.credencify.blockchainservice.dto.response.request;
+package com.credencify.blockchainservice.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,9 @@ import java.math.BigInteger;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class StoreHashRequest {
+@NoArgsConstructor
+public class VerifyHashResponse {
     private String certificateId;
     private String hash;
 }

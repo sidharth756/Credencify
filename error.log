@@ -1,4 +1,4 @@
-eign.FeignException$InternalServerError: [500] during [POST] to [http://blockchain-service/internal/blockchain] [BlockchainClient#storeHash(StoreHashRequest)]: [{"timestamp":"2026-08-07T14:15:31.065Z","status":500,"error":"Internal Server Error","path":"/internal/blockchain"}]
+feign.FeignException$InternalServerError: [500] during [POST] to [http://blockchain-service/internal/blockchain] [BlockchainClient#storeHash(StoreHashRequest)]: [{"timestamp":"2026-08-08T16:20:32.879Z","status":500,"error":"Internal Server Error","path":"/internal/blockchain"}]
 	at feign.FeignException.serverErrorStatus(FeignException.java:281) ~[feign-core-13.6.1.jar:na]
 	at feign.FeignException.errorStatus(FeignException.java:226) ~[feign-core-13.6.1.jar:na]
 	at feign.FeignException.errorStatus(FeignException.java:213) ~[feign-core-13.6.1.jar:na]
@@ -7,18 +7,11 @@ eign.FeignException$InternalServerError: [500] during [POST] to [http://blockcha
 	at feign.InvocationContext.proceed(InvocationContext.java:80) ~[feign-core-13.6.1.jar:na]
 	at feign.ResponseHandler.handleResponse(ResponseHandler.java:69) ~[feign-core-13.6.1.jar:na]
 	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:109) ~[feign-core-13.6.1.jar:na]
-
-
-
-	org.web3j.protocol.exceptions.TransactionException: Transaction 0x67cce4a5a2ca7e254c14b28ec459e5ba2115e1c3bc51d9022af701f27f4d0925 has failed with status: 0x0. Gas used: 25935. Revert reason: 'execution reverted: Certificate Alreay exists'.
-	at org.web3j.tx.Contract.executeTransaction(Contract.java:435) ~[core-4.12.0.jar:na]
-	at org.web3j.tx.Contract.executeTransaction(Contract.java:374) ~[core-4.12.0.jar:na]
-	at org.web3j.tx.Contract.executeTransaction(Contract.java:368) ~[core-4.12.0.jar:na]
-	at org.web3j.tx.Contract.executeTransaction(Contract.java:363) ~[core-4.12.0.jar:na]
-	at org.web3j.tx.Contract.lambda$executeRemoteCallTransaction$3(Contract.java:468) ~[core-4.12.0.jar:na]
-	at org.web3j.protocol.core.RemoteCall.send(RemoteCall.java:42) ~[core-4.12.0.jar:na]
-	at com.credencify.blockchainservice.service.BlockchainServiceImpl.storeHash(BlockchainServiceImpl.java:47) ~[classes/:na]
-	at com.credencify.blockchainservice.controller.BlockchainController.storeHash(BlockchainController.java:26) ~[classes/:na]
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:53) ~[feign-core-13.6.1.jar:na]
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:104) ~[feign-core-13.6.1.jar:na]
+	at jdk.proxy2/jdk.proxy2.$Proxy141.storeHash(Unknown Source) ~[na:na]
+	at com.credencify.credential_service.service.CredentialServiceImpl.issueCertificate(CredentialServiceImpl.java:35) ~[classes/:na]
+	at com.credencify.credential_service.controller.CredentialController.issueCertificate(CredentialController.java:24) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:252) ~[spring-web-7.0.8.jar:7.0.8]
@@ -62,4 +55,3 @@ eign.FeignException$InternalServerError: [500] during [POST] to [http://blockcha
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.22.jar:11.0.22]
 	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
-

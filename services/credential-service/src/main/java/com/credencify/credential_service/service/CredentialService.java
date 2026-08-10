@@ -1,8 +1,8 @@
 package com.credencify.credential_service.service;
 
-import com.credencify.credential_service.dto.request.CertificateRequest;
-import com.credencify.credential_service.dto.response.StoreHashResponse;
-import com.credencify.credential_service.dto.response.VerifyHashResponse;
+import com.credencify.credential_service.dto.response.request.CertificateRequest;
+import com.credencify.credential_service.dto.response.response.StoreHashResponse;
+import com.credencify.credential_service.dto.response.response.VerifyHashResponse;
 
 public interface CredentialService {
 
@@ -12,7 +12,9 @@ public interface CredentialService {
 
     String hash(String combined) throws Exception;
 
-    VerifyHashResponse verify(String certificateId);
+    VerifyHashResponse verify(String certificateId) throws Exception;
+
+    StoreHashResponse saveCertificate(CertificateRequest request,StoreHashResponse response);
 
 
 }
