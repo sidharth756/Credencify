@@ -1,0 +1,84 @@
+.container {
+  min-height: 100vh;
+  background: #f5f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  font-family: "Outfit", sans-serif;
+}
+
+.card {
+  width: 400px;
+  background: white;
+  border-radius: 18px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+.failureIcon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #fdeaea;
+  color: #d64545;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.card h2 {
+  color: #c0392b;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  color: #666;
+  line-height: 1.5;
+}
+
+.verificationId {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f5f7fb;
+  border-radius: 8px;
+}
+
+.verificationId span {
+  display: block;
+  color: #777;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.verificationId strong {
+  color: #1f3b73;
+}
+
+.info {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 20px;
+}
+
+.button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #1d5cb5;
+  color: white;
+  font-size: 15px;
+  font-family: "Outfit", sans-serif;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #154a92;
+}
