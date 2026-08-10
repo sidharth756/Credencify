@@ -1,0 +1,114 @@
+.container {
+  min-height: 100vh;
+  background: #f5f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  font-family: "Outfit", sans-serif;
+}
+
+.card {
+  width: 500px;
+  background: white;
+  border-radius: 18px;
+  padding: 35px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+.successIcon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: #e8f7ee;
+  color: #22a06b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.card h2 {
+  text-align: center;
+  color: #1f3b73;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #7a8ca5;
+  margin-bottom: 25px;
+}
+
+.details {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.detailRow,
+.hashRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.detailRow span,
+.hashRow span {
+  color: #666;
+  font-weight: 500;
+}
+
+.detailRow strong {
+  color: #1f3b73;
+  text-align: right;
+}
+
+.hashRow {
+  border-bottom: none;
+  display: block;
+}
+
+.hashRow span {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.hashRow strong {
+  display: block;
+  color: #555;
+  font-size: 13px;
+  word-break: break-all;
+}
+
+.button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #1d5cb5;
+  color: white;
+  font-size: 15px;
+  font-family: "Outfit", sans-serif;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #154a92;
+}
+
+.icon {
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.card > p {
+  text-align: center;
+  color: #666;
+}
