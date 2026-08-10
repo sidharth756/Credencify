@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.credencify</groupId>
-    <artifactId>credential-service</artifactId>
+    <artifactId>blockchain-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>credential-service</name>
-    <description>credential-service</description>
+    <name>blockchain-service</name>
+    <description>blockchain-service</description>
     <url/>
     <licenses>
         <license/>
@@ -35,10 +35,9 @@
             <artifactId>spring-boot-starter-webmvc</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <version>5.0.2</version>
-            <scope>compile</scope>
+            <groupId>org.web3j</groupId>
+            <artifactId>core</artifactId>
+            <version>4.12.0</version>
         </dependency>
 
         <dependency>
@@ -48,18 +47,12 @@
             <scope>compile</scope>
         </dependency>
 
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-
-        <dependency>
-            <groupId>org.web3j</groupId>
-            <artifactId>core</artifactId>
-            <version>4.12.0</version>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webmvc-test</artifactId>

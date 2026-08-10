@@ -1,17 +1,15 @@
-package com.credencify.credential_service;
+package com.credencify.blockchainservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients
 @EnableDiscoveryClient
-public class CredentialServiceApplication {
+public class BlockchainServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CredentialServiceApplication.class, args);
+        SpringApplication.run(BlockchainServiceApplication.class, args);
     }
 
 }

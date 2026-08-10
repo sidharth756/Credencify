@@ -4,13 +4,13 @@ import { FaShieldAlt, FaSearch, FaQrcode } from "react-icons/fa";
 
 function Verify() {
 
-  const [verificationId, setVerificationId] = useState("");
+  const [certificateId, setcertificateId] = useState("");
   const [certificate, setCertificate] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleVerify = async () => {
-    if (!verificationId) {
+    if (!certificateId) {
       setError("Please enter Verification ID");
       return;
     }
@@ -21,7 +21,7 @@ function Verify() {
       setCertificate(null);
 
       const response = await fetch(
-        `http://localhost:8090/api/certificates/${verificationId}`,
+        `http://localhost:8051/api/certificates/${certificateId}`,
         {
           method: "GET",
           headers: {
@@ -66,8 +66,8 @@ function Verify() {
           <input
             type="text"
             placeholder="Enter your Credential Verification ID"
-            value={verificationId}
-            onChange={(e) => setVerificationId(e.target.value)}
+            value={certificateId}
+            onChange={(e) => setcertificateId(e.target.value)}
           />
 
           <button className={styles.copyBtn}>
@@ -113,6 +113,12 @@ function Verify() {
             </p>
 
             <p>
+              <strong>Blockchain Hash:</strong>{" "}
+              {certificate.hash}
+            </p>
+
+            {/* 
+            <p>
               <strong>Learner Name:</strong>{" "}
               {certificate.learnerName}
             </p>
@@ -126,6 +132,7 @@ function Verify() {
               <strong>Institution:</strong>{" "}
               {certificate.institution}
             </p>
+            */}
           </div>
         )}
 
