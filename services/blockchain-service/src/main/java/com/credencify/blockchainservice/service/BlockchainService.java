@@ -1,11 +1,9 @@
 package com.credencify.blockchainservice.service;
 
 import com.credencify.blockchainservice.wrapper.CertificateStorage;
-import com.credencify.blockchainservice.dto.response.request.StoreHashRequest;
-import com.credencify.blockchainservice.dto.response.response.StoreHashResponse;
-import com.credencify.blockchainservice.dto.response.response.VerifyHashResponse;
-
-import java.math.BigInteger;
+import com.credencify.blockchainservice.dto.request.StoreHashRequest;
+import com.credencify.blockchainservice.dto.response.StoreHashResponse;
+import com.credencify.blockchainservice.dto.response.VerifyHashResponse;
 
 public interface BlockchainService {
     CertificateStorage getContract();

@@ -11,6 +11,7 @@ import VerificationSuccessPage from "./pages/Verify/VerificationSuccess";
 import VerificationFailurePage from "./pages/Verify/VerificationFailure";
 
 import InstitutionPortal from "./pages/InstitutionPortal/InstitutionPortal";
+import Mods from "./components/Mods/Mods";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
 
       <Route path="/mod/verification-success" element={<VerificationSuccessPage />} />
       <Route path="/mod/verification-failure"  element={<VerificationFailurePage />} />
+      <Route path="/mod" element={<Mods/>}/>
 
     </Routes>
   );

@@ -4,14 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { FaSearch, FaQrcode } from "react-icons/fa";
 
 function Verify() {
-
   const [certificateId, setCertificateId] = useState("");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
   const handleVerify = () => {
-
     if (!certificateId.trim()) {
       setError("Please enter Verification ID");
       return;
@@ -28,9 +26,7 @@ function Verify() {
 
   return (
     <div className={styles.container}>
-
       <div className={styles.card}>
-
         <h2>Verify your Credential</h2>
 
         <p className={styles.subtitle}>
@@ -43,7 +39,6 @@ function Verify() {
         <label>Verification ID</label>
 
         <div className={styles.inputBox}>
-
           <input
             type="text"
             placeholder="Enter your Credential Verification ID"
@@ -51,9 +46,7 @@ function Verify() {
             onChange={(e) => setCertificateId(e.target.value)}
           />
 
-          <button className={styles.copyBtn}>
-          </button>
-
+          <button className={styles.copyBtn}></button>
         </div>
 
         <small>
@@ -84,9 +77,7 @@ function Verify() {
         <div className={styles.footer}>
           All verifications are secure, tamper-proof and blockchain-verified.
         </div>
-
       </div>
-
     </div>
   );
 }

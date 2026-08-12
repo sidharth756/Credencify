@@ -49,6 +49,7 @@
     padding:0 14px;
     font-size:15px;
     margin-bottom:14px;
+    font-family: "Alexandria", sans-serif;
 }
 
 .card input[type="email"]::placeholder{

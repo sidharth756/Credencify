@@ -11,9 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CertificateRequest {
     private String certificateId;
-    private String leanerName;
+    private String learnerName;
     private String courseName;
     private String institutionName;
-
 
 }
