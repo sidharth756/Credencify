@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 2026-08-11T11:59:56.567+05:30  WARN 25388 --- [auth-service] [nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'text/plain;charset=UTF-8' is not supported]
+=======
+deleted
+>>>>>>> 5b2e38e15ba9af6c00d06577d5f7604f5ad27d05
