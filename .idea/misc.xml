@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/services/credential-service/pom.xml" />
         <option value="$PROJECT_DIR$/services/eureka-service/pom.xml" />
         <option value="$PROJECT_DIR$/services/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/services/auth-service/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

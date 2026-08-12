@@ -1,9 +1,9 @@
 package com.credencify.credential_service.service;
 
-import com.credencify.credential_service.dto.response.request.CertificateRequest;
-import com.credencify.credential_service.dto.response.request.StoreHashRequest;
-import com.credencify.credential_service.dto.response.response.StoreHashResponse;
-import com.credencify.credential_service.dto.response.response.VerifyHashResponse;
+import com.credencify.credential_service.dto.request.CertificateRequest;
+import com.credencify.credential_service.dto.request.StoreHashRequest;
+import com.credencify.credential_service.dto.response.StoreHashResponse;
+import com.credencify.credential_service.dto.response.VerifyHashResponse;
 import com.credencify.credential_service.entity.CertificateEntity;
 import com.credencify.credential_service.exception.HashMismatchException;
 import com.credencify.credential_service.exception.HashNotFoundException;

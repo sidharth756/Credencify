@@ -25,56 +25,58 @@ function Verify() {
   };
 
   return (
-    <div className={styles.card}>
-      <h2>Verify your Credential</h2>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <h2>Verify your Credential</h2>
 
-      <p className={styles.subtitle}>
-        Enter the credential verification ID to instantly verify its
-        authenticity and view details.
-      </p>
-
-      <hr />
-
-      <label>Verification ID</label>
-
-      <div className={styles.inputBox}>
-        <input
-          type="text"
-          placeholder="Enter your Credential Verification ID"
-          value={certificateId}
-          onChange={(e) => setCertificateId(e.target.value)}
-        />
-
-        <button className={styles.copyBtn}></button>
-      </div>
-
-      <small>
-        You can find the verification ID on your credential or certificate.
-      </small>
-
-      <button
-        className={styles.verifyBtn}
-        onClick={handleVerify}
-      >
-        Verify Credential <FaSearch />
-      </button>
-
-      {error && (
-        <p style={{ color: "red" }}>
-          {error}
+        <p className={styles.subtitle}>
+          Enter the credential verification ID to instantly verify its
+          authenticity and view details.
         </p>
-      )}
 
-      <div className={styles.or}>
-        <span>Or</span>
-      </div>
+        <hr />
 
-      <button className={styles.qrBtn}>
-        <FaQrcode /> Scan QR Code
-      </button>
+        <label>Verification ID</label>
 
-      <div className={styles.footer}>
-        All verifications are secure, tamper-proof and blockchain-verified.
+        <div className={styles.inputBox}>
+          <input
+            type="text"
+            placeholder="Enter your Credential Verification ID"
+            value={certificateId}
+            onChange={(e) => setCertificateId(e.target.value)}
+          />
+
+          <button className={styles.copyBtn}></button>
+        </div>
+
+        <small>
+          You can find the verification ID on your credential or certificate.
+        </small>
+
+        <button
+          className={styles.verifyBtn}
+          onClick={handleVerify}
+        >
+          Verify Credential <FaSearch />
+        </button>
+
+        {error && (
+          <p style={{ color: "red" }}>
+            {error}
+          </p>
+        )}
+
+        <div className={styles.or}>
+          <span>Or</span>
+        </div>
+
+        <button className={styles.qrBtn}>
+          <FaQrcode /> Scan QR Code
+        </button>
+
+        <div className={styles.footer}>
+          All verifications are secure, tamper-proof and blockchain-verified.
+        </div>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 package com.credencify.credential_service.controller;
 
-import com.credencify.credential_service.dto.response.request.CertificateRequest;
-import com.credencify.credential_service.dto.response.response.StoreHashResponse;
-import com.credencify.credential_service.dto.response.response.VerifyHashResponse;
+import com.credencify.credential_service.dto.request.CertificateRequest;
+import com.credencify.credential_service.dto.response.StoreHashResponse;
+import com.credencify.credential_service.dto.response.VerifyHashResponse;
 import com.credencify.credential_service.service.CredentialService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

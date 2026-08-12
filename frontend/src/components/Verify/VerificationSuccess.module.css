@@ -1,11 +1,12 @@
 .container {
-  min-height: 100vh;
+  min-height: calc(100vh - 72px);
   background: #f5f7fb;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 30px;
+  align-items: flex-start;
+  padding: 60px 20px;
   font-family: "Outfit", sans-serif;
+  box-sizing: border-box;
 }
 
 .card {

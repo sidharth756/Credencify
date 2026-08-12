@@ -1,4 +1,4 @@
-package com.credencify.credential_service.dto.response.response;
+package com.credencify.credential_service.dto.response;
 
 import com.credencify.credential_service.enums.CertificateStatus;
 import lombok.AllArgsConstructor;
@@ -21,4 +21,5 @@ public class VerifyHashResponse {
     private String institutionName;
     private CertificateStatus status;
     private LocalDateTime issuedAt;
+
 }

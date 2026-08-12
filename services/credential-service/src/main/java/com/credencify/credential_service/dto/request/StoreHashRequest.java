@@ -1,4 +1,4 @@
-package com.credencify.credential_service.dto.response.request;
+package com.credencify.credential_service.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
