@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.math.BigInteger;
-
 @FeignClient(name = "blockchain-service")
 public interface BlockchainClient {
     @PostMapping("/internal/blockchain")
     StoreHashResponse storeHash(@RequestBody StoreHashRequest request);
+
+    //certificatid,hash ->storehashrequest
 
     @GetMapping("/internal/blockchain/{certificateId}")
     VerifyHashResponse getHash(@PathVariable("certificateId")String certificateId);

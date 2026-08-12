@@ -9,7 +9,7 @@ function NavBar() {
         <nav className={styles.navlinks}>
             <a href="/">Home</a>
             <a href="#">Contact</a>
-            <a href="#">Verify Credential</a>
+            <a href="/mod/verify">Verify Credential</a>
             <a href="#">About us</a>
         </nav>
         <button className={styles.signinbtn}>Sign In</button>

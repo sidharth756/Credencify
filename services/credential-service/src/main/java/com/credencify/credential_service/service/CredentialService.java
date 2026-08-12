@@ -12,7 +12,9 @@ public interface CredentialService {
 
     String hash(String combined) throws Exception;
 
-    VerifyHashResponse verify(String certificateId);
+    VerifyHashResponse verify(String certificateId) throws Exception;
+
+    StoreHashResponse saveCertificate(CertificateRequest request,StoreHashResponse response);
 
 
 }
