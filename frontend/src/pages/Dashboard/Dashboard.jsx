@@ -7,11 +7,24 @@ import styles from "./Dashboard.module.css";
 function Dashboard() {
   const navigate = useNavigate();
 
-  // Temporary mock logged-in user. You can toggle role to see different dashboards!
-  const [user, setUser] = useState({
-    name: "Harvard University",
-    email: "admin@harvard.edu",
-    role: "INSTITUTION", // Can be: 'INSTITUTION', 'LEARNER', 'VERIFIER'
+  // Logged-in user loaded from localStorage, falling back to mock default for development
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem("user");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      return {
+        name: parsed.fullName || "User",
+        email: parsed.email || "",
+        role: parsed.role || "LEARNER",
+        userId: parsed.userId || ""
+      };
+    }
+    return {
+      name: "Harvard University",
+      email: "admin@harvard.edu",
+      role: "INSTITUTION",
+      userId: "Harvard-ID"
+    };
   });
 
   // State to hold fetched certificates/logs
@@ -26,24 +39,54 @@ function Dashboard() {
     failed: 0,
   });
 
-  // Mock API fetch simulation for learning
+  // Fetch dashboard data from backend APIs
   useEffect(() => {
     setLoading(true);
-    // Simulating API call: GET /api/certificates
-    setTimeout(() => {
-      // Clear fake data to show empty states during development
-      let dataList = [];
-      setCertificates(dataList);
-      
-      setStats({
-        total: 0,
-        issued: 0,
-        revoked: 0,
-        failed: 0,
-      });
-      setLoading(false);
-    }, 400);
-  }, [user.role]);
+    const fetchData = async () => {
+      try {
+        let endpoint = "";
+        if (user.role === "INSTITUTION") {
+          endpoint = `http://localhost:8051/api/certificates/institution/${user.userId}`;
+        } else if (user.role === "LEARNER") {
+          endpoint = `http://localhost:8051/api/certificates/learner/${user.email}`;
+        } else {
+          setCertificates([]);
+          setStats({ total: 0, issued: 0, revoked: 0, failed: 0 });
+          setLoading(false);
+          return;
+        }
+
+        const response = await fetch(endpoint);
+        if (response.ok) {
+          const dataList = await response.json();
+          setCertificates(dataList);
+
+          if (user.role === "INSTITUTION") {
+            setStats({
+              total: dataList.length,
+              issued: dataList.filter(c => c.status === "ISSUED").length,
+              revoked: dataList.filter(c => c.status === "REVOKED").length,
+              failed: 0,
+            });
+          } else if (user.role === "LEARNER") {
+            const uniqueIssuers = new Set(dataList.map(c => c.institutionName)).size;
+            setStats({
+              total: dataList.length,
+              issued: dataList.length,
+              revoked: uniqueIssuers, // Map unique issuing organizations
+              failed: 0,
+            });
+          }
+        }
+      } catch (err) {
+        console.error("Dashboard fetch error:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [user.role, user.email, user.userId]);
 
   // Handle mock role toggling for testing
   const handleRoleChange = (e) => {

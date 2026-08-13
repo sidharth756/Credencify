@@ -37,8 +37,10 @@ function LoginCard() {
       );
 
       if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem("user", JSON.stringify(data));
         alert("Login Sucessfull! Redirecting");
-        navigate("/mod/institution");
+        navigate("/dashboard");
       }
       else {
         setError("Invalid email or password. Please try again.");
