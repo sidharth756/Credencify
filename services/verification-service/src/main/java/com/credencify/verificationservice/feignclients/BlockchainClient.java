@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "blockchain-service")
 public interface BlockchainClient {
-    @GetMapping("/internal/verify")
-    VerifyHashResponse getHash(@PathVariable("certificateId")String certificateId);
+    @GetMapping("/internal/blockchain/{certificateId}")
+    VerifyHashResponse getHash(@PathVariable("certificateId") String certificateId);
 }

@@ -26,6 +26,7 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final AppUserDetailService appUserDetailService;
     private final JwtUtil jwtUtil;
+    private final com.credencify.auth_service.repository.UserRepository userRepository;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest request){
@@ -33,6 +34,11 @@ public class AuthController {
             authenticate(request.getEmail(),request.getPassword());
             final UserDetails userDetails = appUserDetailService.loadUserByUsername(request.getEmail());
             final String jwtToken = jwtUtil.generateToken(userDetails);
+            
+            // Fetch User details to send in response
+            com.credencify.auth_service.entity.UserEntity user = userRepository.findByEmail(request.getEmail())
+                    .orElseThrow(() -> new BadCredentialsException("User not found"));
+
             ResponseCookie cookie = ResponseCookie.from("jwt",jwtToken)
                     .httpOnly(true)
                     .path("/")
@@ -40,7 +46,13 @@ public class AuthController {
                     .sameSite("Strict")
                     .build();
             return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString())
-                    .body(new AuthResponse(request.getEmail(),jwtToken));
+                    .body(new AuthResponse(
+                            request.getEmail(),
+                            jwtToken,
+                            user.getRole().name(),
+                            user.getUserId(),
+                            user.getFullName()
+                    ));
         }
         catch (BadCredentialsException ex){
             Map<String,Object> error = new HashMap<>();

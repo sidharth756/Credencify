@@ -7,19 +7,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="auth-service" />
         <module name="eureka-server" />
+        <module name="gateway_service" />
       </profile>
-      <profile name="Annotation profile for credential-service" enabled="true">
+      <profile name="Annotation profile for verification-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
         </processorPath>
         <module name="blockchain-service" />
         <module name="credential-service" />
+        <module name="auth-service" />
+        <module name="verification-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

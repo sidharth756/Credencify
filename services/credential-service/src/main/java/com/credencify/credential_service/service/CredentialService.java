@@ -19,4 +19,6 @@ public interface CredentialService {
 
     CertificateEntity getCertificate(String certificateID) throws Exception;
 
+    java.util.List<CertificateEntity> getCertificatesByInstitution(String institutionId);
+    java.util.List<CertificateEntity> getCertificatesByLearner(String learnerEmail);
 }

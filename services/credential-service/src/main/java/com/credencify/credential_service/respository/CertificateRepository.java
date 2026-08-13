@@ -9,4 +9,7 @@ public interface CertificateRepository extends JpaRepository<CertificateEntity,L
     CertificateEntity findByCertificateId(String certificate_id);
 
     Boolean existsByCertificateId(String certificateId);
+
+    java.util.List<CertificateEntity> findByInstitutionId(String institutionId);
+    java.util.List<CertificateEntity> findByLearnEmail(String learnEmail);
 }

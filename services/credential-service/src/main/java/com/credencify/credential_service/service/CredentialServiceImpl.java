@@ -92,6 +92,9 @@ public class CredentialServiceImpl implements CredentialService{
         certificate.setInstitutionName(request.getInstitutionName());
         certificate.setCertificateHash(response.getCertificateHash());
         certificate.setTransactionHash(response.getTransactionHash());
+        certificate.setLearnEmail(request.getLearnerEmail());
+        certificate.setInstitutionId(request.getInstitutionId());
+        
         certificateRepository.save(certificate);
         CertificateEntity certificate1 = certificateRepository.findByCertificateId(request.getCertificateId());
         response.setUID(certificate1.getId());
@@ -109,6 +112,16 @@ public class CredentialServiceImpl implements CredentialService{
         else{
             throw new CertifcateNotFoundException("Certificate "+ certificateID+ " not found on DB" );
         }
+    }
+
+    @Override
+    public java.util.List<CertificateEntity> getCertificatesByInstitution(String institutionId) {
+        return certificateRepository.findByInstitutionId(institutionId);
+    }
+
+    @Override
+    public java.util.List<CertificateEntity> getCertificatesByLearner(String learnerEmail) {
+        return certificateRepository.findByLearnEmail(learnerEmail);
     }
 
 

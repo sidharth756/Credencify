@@ -14,5 +14,6 @@ public class CertificateRequest {
     private String learnerName;
     private String courseName;
     private String institutionName;
-
+    private String learnerEmail;
+    private String institutionId;
 }

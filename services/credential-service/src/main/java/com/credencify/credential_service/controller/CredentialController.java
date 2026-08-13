@@ -39,4 +39,14 @@ public class CredentialController {
         CertificateEntity certificate = credentialService.getCertificate(certificateId);
         return ResponseEntity.status(HttpStatus.OK).body(certificate);
     }
+
+    @GetMapping("/institution/{institutionId}")
+    public ResponseEntity<java.util.List<CertificateEntity>> getCertificatesByInstitution(@PathVariable String institutionId) {
+        return ResponseEntity.ok(credentialService.getCertificatesByInstitution(institutionId));
+    }
+
+    @GetMapping("/learner/{learnerEmail}")
+    public ResponseEntity<java.util.List<CertificateEntity>> getCertificatesByLearner(@PathVariable String learnerEmail) {
+        return ResponseEntity.ok(credentialService.getCertificatesByLearner(learnerEmail));
+    }
 }
