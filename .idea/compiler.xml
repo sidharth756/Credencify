@@ -8,9 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="auth-service" />
-        <module name="verification-service" />
         <module name="eureka-server" />
-        <module name="gateway_service" />
       </profile>
       <profile name="Annotation profile for credential-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
