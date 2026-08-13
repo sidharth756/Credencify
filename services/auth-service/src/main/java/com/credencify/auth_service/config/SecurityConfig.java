@@ -40,7 +40,7 @@ public class SecurityConfig {
         http.cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login","/register","/send-reset-otp","/reset-passoword","/logout")
+                        .requestMatchers("/login","/register","/send-reset-otp","/reset-passoword","/logout","/institutions","/institutions/**")
                         .permitAll().anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .logout(AbstractHttpConfigurer::disable);

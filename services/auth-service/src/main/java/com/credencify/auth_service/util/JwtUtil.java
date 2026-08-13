@@ -14,7 +14,7 @@ import java.util.Map;
 @Component
 public class JwtUtil {
 
-    @Value("@{jwt.secret.key}")
+    @Value("${jwt.secret.key}")
     private String SECRECT_KEY;
     public String generateToken(UserDetails userDetails){
         Map<String,Object> cliams = new HashMap<>();

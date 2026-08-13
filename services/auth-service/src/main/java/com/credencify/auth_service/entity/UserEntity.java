@@ -29,8 +29,12 @@ public class UserEntity {
     @Column(unique = true)
     private String email;
     private String password;
+
+    @Enumerated(EnumType.STRING)
     private Role role;
+    @Enumerated(EnumType.STRING)
     private Status status;
+    
     private Boolean isEmailVerified;
     @CreationTimestamp
     @Column(updatable = false)
