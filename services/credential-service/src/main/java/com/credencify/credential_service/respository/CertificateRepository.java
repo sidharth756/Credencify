@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CertificateRepository extends JpaRepository<CertificateEntity,Long> {
     CertificateEntity findByCertificateId(String certificate_id);
+
+    Boolean existsByCertificateId(String certificateId);
 }

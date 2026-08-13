@@ -44,4 +44,8 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body("This certificate ID has already been registered on the blockchain.");
     }
 
+    @ExceptionHandler(CertifcateNotFoundException.class)
+    public  ResponseEntity<String> handleCertificateNotFound(CertifcateNotFoundException ex){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
 }

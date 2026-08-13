@@ -5,6 +5,7 @@ import com.credencify.credential_service.dto.request.StoreHashRequest;
 import com.credencify.credential_service.dto.response.StoreHashResponse;
 import com.credencify.credential_service.dto.response.VerifyHashResponse;
 import com.credencify.credential_service.entity.CertificateEntity;
+import com.credencify.credential_service.exception.CertifcateNotFoundException;
 import com.credencify.credential_service.exception.HashMismatchException;
 import com.credencify.credential_service.exception.HashNotFoundException;
 import com.credencify.credential_service.feignclients.BlockchainClient;
@@ -25,8 +26,6 @@ public class CredentialServiceImpl implements CredentialService{
         this.blockchainClient = blockchainClient;
         this.certificateRepository = certificateRepository;
     }
-
-
 
     @Override
     public StoreHashResponse issueCertificate(CertificateRequest req) throws Exception{
@@ -65,8 +64,6 @@ public class CredentialServiceImpl implements CredentialService{
         try {
             VerifyHashResponse response = blockchainClient.getHash(certificateId);
 
-
-            System.out.println(response.getCertificateId());
             CertificateEntity certificate = certificateRepository.findByCertificateId(response.getCertificateId());
 
             System.out.println(certificate.toString());
@@ -100,6 +97,18 @@ public class CredentialServiceImpl implements CredentialService{
         response.setUID(certificate1.getId());
         return response;
 
+    }
+
+    @Override
+    public CertificateEntity getCertificate(String certificateID) throws Exception {
+        Boolean isThere = certificateRepository.existsByCertificateId(certificateID);
+        if(isThere) {
+            CertificateEntity certificate = certificateRepository.findByCertificateId(certificateID);
+            return certificate;
+        }
+        else{
+            throw new CertifcateNotFoundException("Certificate "+ certificateID+ " not found on DB" );
+        }
     }
 
 

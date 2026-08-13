@@ -3,6 +3,7 @@ package com.credencify.credential_service.controller;
 import com.credencify.credential_service.dto.request.CertificateRequest;
 import com.credencify.credential_service.dto.response.StoreHashResponse;
 import com.credencify.credential_service.dto.response.VerifyHashResponse;
+import com.credencify.credential_service.entity.CertificateEntity;
 import com.credencify.credential_service.service.CredentialService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,12 +25,18 @@ public class CredentialController {
         StoreHashResponse response = credentialService.issueCertificate(req);
 
         response = credentialService.saveCertificate(req,response);
-       //return ResponseEntity.ok("Done :" + hashed);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
     @GetMapping("/{certificateId}")
     public ResponseEntity<VerifyHashResponse> verify(@PathVariable String certificateId) throws Exception{
         VerifyHashResponse response = credentialService.verify(certificateId);
         return  ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    //NOTE: this API Is only for the INTERNAL purpose do not use for Public
+    @GetMapping("find/{certificateId}")
+    public ResponseEntity<CertificateEntity> findCertificate(@PathVariable String certificateId) throws Exception{
+        CertificateEntity certificate = credentialService.getCertificate(certificateId);
+        return ResponseEntity.status(HttpStatus.OK).body(certificate);
     }
 }

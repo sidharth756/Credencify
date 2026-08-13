@@ -12,6 +12,7 @@ import VerificationFailurePage from "./pages/Verify/VerificationFailure";
 
 import InstitutionPortal from "./pages/InstitutionPortal/InstitutionPortal";
 import Mods from "./components/Mods/Mods";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Route path="/" element={<Welcome />} />
       <Route path="/register" element={<Register />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/dashboard" element={<Dashboard />} />
 
       <Route path="/mod/verify"  element={<VerifyPage />}      />
 

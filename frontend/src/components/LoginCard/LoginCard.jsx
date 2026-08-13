@@ -27,7 +27,7 @@ function LoginCard() {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/api/v1.0/login", {
+        "http://localhost:8060/api/v1.0/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

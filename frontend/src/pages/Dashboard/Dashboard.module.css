@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+.dashboardContainer {
+  min-height: calc(100vh - 72px);
+  background: #f8fafc;
+  font-family: 'Outfit', sans-serif;
+  display: flex;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  color: #1e293b;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #e2e8f0;
+}
+
+.sidebarBrand {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2563eb;
+  font-family: "ADLaM Display", "Outfit", sans-serif;
+  margin-bottom: 40px;
+}
+
+.sidebarMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.menuItem {
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #64748b;
+  font-weight: 600;
+  font-family: "Outfit", sans-serif;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menuItem:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.menuItemActive {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.sidebarUser {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.userName {
+  font-weight: 700;
+  font-size: 15px;
+  color: #173b6d;
+}
+
+.userRole {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Main Content Area */
+.mainContent {
+  flex-grow: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #173b6d;
+  margin: 0;
+}
+
+.header p {
+  color: #64748b;
+  font-size: 14px;
+  margin: 4px 0 0 0;
+}
+
+.actionBtn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.actionBtn:hover {
+  background: #1d4ed8;
+}
+
+/* Stats Cards */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-bottom: 35px;
+}
+
+.statCard {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+}
+
+.statTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.statValue {
+  font-size: 32px;
+  font-weight: 700;
+  color: #173b6d;
+}
+
+/* Data Table section */
+.sectionCard {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #173b6d;
+  margin-bottom: 20px;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: 12px 16px;
+  font-weight: 600;
+  color: #64748b;
+  font-size: 13px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table td {
+  padding: 16px;
+  color: #334155;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* Status badge styles */
+.badge {
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.badgeIssued {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.badgeRevoked {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.badgePending {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.badgeFailed {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.hashCell {
+  font-family: monospace;
+  color: #64748b;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
