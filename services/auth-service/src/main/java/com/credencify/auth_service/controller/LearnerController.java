@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1.0/learners")
+@RequestMapping("/learners")
 public class LearnerController {
 
     private final LearnerService learnerService;
@@ -41,13 +41,22 @@ public class LearnerController {
     }
 
     @PostMapping
-    public ResponseEntity<LearnerEntity> saveLearner (@RequestBody LearnerEntity learner) {
+    public ResponseEntity<LearnerEntity> saveLearner(@RequestBody LearnerEntity learner) {
 
         LearnerEntity savedLearner = new LearnerEntity();
+
         savedLearner.setUserId(learner.getUserId());
+        savedLearner.setDob(learner.getDob());
+        savedLearner.setGender(learner.getGender());
+        savedLearner.setPhoneNumber(learner.getPhoneNumber());
+        savedLearner.setAddress(learner.getAddress());
+        savedLearner.setCity(learner.getCity());
+        savedLearner.setState(learner.getState());
+        savedLearner.setCountry(learner.getCountry());
+        savedLearner.setPostalCode(learner.getPostalCode());
+        savedLearner.setProfileImageUrl(learner.getProfileImageUrl());
 
-        learnerService.saveLearner(learner);
-
-        return ResponseEntity.ok(savedLearner);
+        LearnerEntity result = learnerService.saveLearner(savedLearner);
+        return ResponseEntity.ok(result);
     }
 }
