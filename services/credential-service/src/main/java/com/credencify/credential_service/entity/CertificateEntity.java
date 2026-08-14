@@ -37,8 +37,6 @@ public class CertificateEntity {
     private String learnEmail;
     @Column(name = "insititution_id")
     private String institutionId;
-
-
-
-
+    @Column(name = "learner_id")
+    private String learnerId;
 }

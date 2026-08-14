@@ -6,6 +6,8 @@ import { GrStatusPlaceholder } from "react-icons/gr"; // Fallback node icon
 import { MdOutlineSecurity } from "react-icons/md";
 import styles from "./Verifying.module.css";
 
+const GW = "http://" + window.location.hostname + ":9000";
+
 function Verifying() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -27,7 +29,7 @@ function Verifying() {
         // ---- STEP 1: Fetching Credential ----
         setCurrentStep(1);
         const response = await fetch(
-          `http://${import.meta.env.VITE_API_HOST}:8051/api/certificates/${certificateId}`,
+          `${GW}/api/v1.0/verify/${certificateId}`,
           {
             method: "GET",
             headers: {
@@ -40,8 +42,7 @@ function Verifying() {
         await new Promise((resolve) => setTimeout(resolve, getRandomDelay(800, 1800)));
 
         if (response.status === 404) {
-          // If not found, skip directly to failure
-          navigate("/mod/verification-failure", {
+          navigate("/verification-failure", {
             state: {
               certificateId: certificateId,
               message: "Certificate not found in records.",
@@ -51,7 +52,7 @@ function Verifying() {
         }
 
         if (!response.ok) {
-          navigate("/mod/verification-failure", {
+          navigate("/verification-failure", {
             state: {
               certificateId: certificateId,
               message: "Unable to verify certificate details.",
@@ -75,7 +76,7 @@ function Verifying() {
         await new Promise((resolve) => setTimeout(resolve, getRandomDelay(500, 1000)));
 
         // Redirect to success
-        navigate("/mod/verification-success", {
+        navigate("/verification-success", {
           state: {
             certificate: data,
           },
@@ -83,7 +84,7 @@ function Verifying() {
 
       } catch (error) {
         console.error("Verification error:", error);
-        navigate("/mod/verification-failure", {
+        navigate("/verification-failure", {
           state: {
             certificateId: certificateId,
             message: "Unable to connect to verification server.",

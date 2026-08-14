@@ -8,7 +8,7 @@ function HeroSection() {
     <section className={styles.hero}>
       <div className={styles.left}>
         <h1>
-            Welcome Back to Credify
+            Welcome back to Credencify
         </h1>
 
         <p>

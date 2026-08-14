@@ -21,4 +21,6 @@ public interface CredentialService {
 
     java.util.List<CertificateEntity> getCertificatesByInstitution(String institutionId);
     java.util.List<CertificateEntity> getCertificatesByLearner(String learnerEmail);
+    java.util.List<CertificateEntity> getCertificatesByLearnerId(String learnerId);
+    CertificateEntity revokeCertificate(String certificateId);
 }

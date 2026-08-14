@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Verify.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { FaSearch, FaQrcode } from "react-icons/fa";
 
 function Verify() {
@@ -8,6 +8,19 @@ function Verify() {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const id = queryParams.get("id");
+    if (id) {
+      navigate("/verifying", {
+        state: {
+          certificateId: id.trim(),
+        },
+      });
+    }
+  }, [location, navigate]);
 
   const handleVerify = () => {
     if (!certificateId.trim()) {
@@ -17,7 +30,7 @@ function Verify() {
 
     setError("");
 
-    navigate("/mod/verifying", {
+    navigate("/verifying", {
       state: {
         certificateId: certificateId.trim(),
       },

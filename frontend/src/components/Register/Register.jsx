@@ -1,7 +1,9 @@
 import styles from "./Register.module.css";
 import { FaUserCircle, FaUniversity, FaGraduationCap } from "react-icons/fa";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
+const GW = "http://" + window.location.hostname + ":9000";
 
 function Register() {
   const navigate = useNavigate();
@@ -37,7 +39,7 @@ function Register() {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/api/v1.0/register", {
+      const response = await fetch(`${GW}/api/v1.0/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -56,8 +58,17 @@ function Register() {
           navigate("/"); // Redirect to Sign In page
         }, 1500);
       } else {
-        const errorText = await response.text();
-        setError(errorText || "Registration failed. Please try again.");
+        try {
+          const errorData = await response.json();
+          if (errorData.errors && errorData.errors.length > 0) {
+            const validationMessages = errorData.errors.map(err => err.defaultMessage).join(". ");
+            setError(validationMessages);
+          } else {
+            setError(errorData.message || "Registration failed. Please try again.");
+          }
+        } catch (parseErr) {
+          setError("Registration failed. Please try again.");
+        }
       }
     } catch (err) {
       console.error(err);
@@ -225,7 +236,7 @@ function Register() {
 
           <p className={styles.bottomText}>
             Have an account?
-            <a href="/"> Sign In</a>
+            <Link to="/"> Sign In</Link>
           </p>
         </div>
       </div>

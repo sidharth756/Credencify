@@ -5,6 +5,7 @@ import com.credencify.credential_service.dto.request.StoreHashRequest;
 import com.credencify.credential_service.dto.response.StoreHashResponse;
 import com.credencify.credential_service.dto.response.VerifyHashResponse;
 import com.credencify.credential_service.entity.CertificateEntity;
+import com.credencify.credential_service.enums.CertificateStatus;
 import com.credencify.credential_service.exception.CertifcateNotFoundException;
 import com.credencify.credential_service.exception.HashMismatchException;
 import com.credencify.credential_service.exception.HashNotFoundException;
@@ -13,29 +14,29 @@ import com.credencify.credential_service.respository.CertificateRepository;
 import feign.FeignException;
 import org.springframework.stereotype.Service;
 
-
-import java.security.MessageDigest;   // <-- correct import
+import java.security.MessageDigest;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 @Service
-public class CredentialServiceImpl implements CredentialService{
+public class CredentialServiceImpl implements CredentialService {
     private final BlockchainClient blockchainClient;
     private final CertificateRepository certificateRepository;
 
-    public CredentialServiceImpl(BlockchainClient blockchainClient,CertificateRepository certificateRepository) {
+    public CredentialServiceImpl(BlockchainClient blockchainClient, CertificateRepository certificateRepository) {
         this.blockchainClient = blockchainClient;
         this.certificateRepository = certificateRepository;
     }
 
     @Override
-    public StoreHashResponse issueCertificate(CertificateRequest req) throws Exception{
+    public StoreHashResponse issueCertificate(CertificateRequest req) throws Exception {
         String combined = combineString(req);
         String hashed = hash(combined);
 
-        StoreHashRequest request = new StoreHashRequest(req.getCertificateId(),hashed);
+        StoreHashRequest request = new StoreHashRequest(req.getCertificateId(), hashed);
 
         StoreHashResponse response = blockchainClient.storeHash(request);
-        System.out.println( response.getMessage() + " " + response.getTransactionHash() );
+        System.out.println(response.getMessage() + " " + response.getTransactionHash());
         return response;
     }
 
@@ -45,7 +46,7 @@ public class CredentialServiceImpl implements CredentialService{
     }
 
     @Override
-    public String hash(String combined) throws Exception{
+    public String hash(String combined) throws Exception {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
 
         byte[] hashBytes = md.digest(combined.getBytes(StandardCharsets.UTF_8));
@@ -55,12 +56,11 @@ public class CredentialServiceImpl implements CredentialService{
         for (byte b : hashBytes) {
             hex.append(String.format("%02x", b));
         }
-        String hash = "0x" + hex.toString();
-        return hash;
+        return "0x" + hex.toString();
     }
 
     @Override
-    public VerifyHashResponse verify(String certificateId) throws Exception{
+    public VerifyHashResponse verify(String certificateId) throws Exception {
         try {
             VerifyHashResponse response = blockchainClient.getHash(certificateId);
 
@@ -76,8 +76,7 @@ public class CredentialServiceImpl implements CredentialService{
                 return response;
             }
             throw new HashMismatchException("No certificate Matched");
-        }
-        catch (FeignException.NotFound ex){
+        } catch (FeignException.NotFound ex) {
             throw new HashNotFoundException("No certificate hash found on blockchain for ID: " + certificateId);
         }
     }
@@ -94,35 +93,46 @@ public class CredentialServiceImpl implements CredentialService{
         certificate.setTransactionHash(response.getTransactionHash());
         certificate.setLearnEmail(request.getLearnerEmail());
         certificate.setInstitutionId(request.getInstitutionId());
-        
+        certificate.setLearnerId(request.getLearnerId());
+
         certificateRepository.save(certificate);
         CertificateEntity certificate1 = certificateRepository.findByCertificateId(request.getCertificateId());
         response.setUID(certificate1.getId());
         return response;
-
     }
 
     @Override
     public CertificateEntity getCertificate(String certificateID) throws Exception {
         Boolean isThere = certificateRepository.existsByCertificateId(certificateID);
-        if(isThere) {
-            CertificateEntity certificate = certificateRepository.findByCertificateId(certificateID);
-            return certificate;
-        }
-        else{
-            throw new CertifcateNotFoundException("Certificate "+ certificateID+ " not found on DB" );
+        if (isThere) {
+            return certificateRepository.findByCertificateId(certificateID);
+        } else {
+            throw new CertifcateNotFoundException("Certificate " + certificateID + " not found on DB");
         }
     }
 
     @Override
-    public java.util.List<CertificateEntity> getCertificatesByInstitution(String institutionId) {
+    public List<CertificateEntity> getCertificatesByInstitution(String institutionId) {
         return certificateRepository.findByInstitutionId(institutionId);
     }
 
     @Override
-    public java.util.List<CertificateEntity> getCertificatesByLearner(String learnerEmail) {
+    public List<CertificateEntity> getCertificatesByLearner(String learnerEmail) {
         return certificateRepository.findByLearnEmail(learnerEmail);
     }
 
+    @Override
+    public List<CertificateEntity> getCertificatesByLearnerId(String learnerId) {
+        return certificateRepository.findByLearnerId(learnerId);
+    }
 
+    @Override
+    public CertificateEntity revokeCertificate(String certificateId) {
+        CertificateEntity cert = certificateRepository.findByCertificateId(certificateId);
+        if (cert == null) {
+            throw new CertifcateNotFoundException("Certificate " + certificateId + " not found to revoke");
+        }
+        cert.setStatus(CertificateStatus.REVOKED);
+        return certificateRepository.save(cert);
+    }
 }

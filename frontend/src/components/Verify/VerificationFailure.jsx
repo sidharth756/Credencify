@@ -46,7 +46,7 @@ function VerificationFailure() {
 
         <button
           className={styles.button}
-          onClick={() => navigate("/mod/verify")}
+          onClick={() => navigate("/verify")}
         >
           Try Again
         </button>

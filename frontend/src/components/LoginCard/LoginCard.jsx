@@ -1,13 +1,13 @@
 import styles from "./LoginCard.module.css";
-import { FcGoogle } from "react-icons/fc";
-import { FaMicrosoft } from "react-icons/fa";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom";
+
+const GW = "http://" + window.location.hostname + ":9000";
 
 function LoginCard() {
-
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -19,70 +19,46 @@ function LoginCard() {
       ...formData,
       [e.target.name]: e.target.value
     });
+    if (error) setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     try {
-      const response = await fetch(
-        "http://localhost:8060/api/v1.0/login", {
+      const response = await fetch(`${GW}/api/v1.0/login`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
-      }
-      );
+      });
+
+      const data = await response.json();
 
       if (response.ok) {
-        const data = await response.json();
         localStorage.setItem("user", JSON.stringify(data));
-        alert("Login Sucessfull! Redirecting");
-        navigate("/dashboard");
+        // Force state update by triggering route event or reloading current page state
+        window.dispatchEvent(new Event("storage"));
+      } else {
+        setError(data.message || "Invalid email or password. Please try again.");
       }
-      else {
-        setError("Invalid email or password. Please try again.");
-        const errorText = await response.text();
-        alert("Login Failed :" + errorText);
-
-      }
-
     } catch (err) {
       console.error(err);
-      alert("Failed to Connect backend");
+      setError("Failed to connect to server. Is the gateway running on port 9000?");
+    } finally {
+      setLoading(false);
     }
   };
 
-
   return (
     <div className={styles.card}>
-
-      <h2>
-        Sign In
-      </h2>
-
-      <p className={styles.subtitle}>
-        Welcome back! Please enter your details.
-      </p>
+      <h2>Sign In</h2>
+      <p className={styles.subtitle}>Welcome back! Please enter your details.</p>
 
       <form onSubmit={handleSubmit}>
         {error && (
-          <div style={{
-            backgroundColor: "#fef2f2",
-            border: "1px solid #fee2e2",
-            borderRadius: "8px",
-            padding: "10px 14px",
-            color: "#991b1b",
-            fontSize: "14px",
-            fontFamily: "'Alexandria', sans-serif",
-            fontWeight: "400",
-            marginBottom: "15px",
-            display: "flex",
-            alignItems: "center",
-            gap: "8px"
-          }}>
+          <div className={styles.errorAlert}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="12" y1="8" x2="12" y2="12"></line>
@@ -91,69 +67,62 @@ function LoginCard() {
             <span>{error}</span>
           </div>
         )}
-        <label>Email</label>
+
+        <label htmlFor="email">Email</label>
         <input
+          id="email"
           type="email"
           name="email"
           value={formData.email}
           placeholder="Enter your email"
           onChange={handleChange}
-          style={{ outline: error ? "1.5px solid red" : "none" }} />
+          required
+          className={error ? styles.inputError : ""}
+        />
 
-        <label>Password</label>
+        <label htmlFor="password">Password</label>
         <input
+          id="password"
           type="password"
           name="password"
           value={formData.password}
           onChange={handleChange}
           placeholder="Enter your password"
-          style={{ outline: error ? "1.5px solid red" : "none" }}
+          required
+          className={error ? styles.inputError : ""}
         />
 
         <div className={styles.options}>
           <label className={styles.remember}>
-            <input type="checkbox" />
-            Remember me
+            <input type="checkbox" /> Remember me
           </label>
-
-          <a href="#">
-            Forgot password?
-          </a>
-
+          <a href="#">Forgot password?</a>
         </div>
-        <button className={styles.signButton}>
-          Sign In
+
+        <button className={styles.signButton} disabled={loading}>
+          {loading ? <span className={styles.spinner}></span> : "Sign In"}
         </button>
 
         <div className={styles.divider}>
-          <span></span>Or Sign in with<span></span>
+          <span></span>Or sign in with<span></span>
         </div>
 
-        <button className={styles.socialButton}>
-          <img
-            src="https://img.icons8.com/color/48/google-logo.png"
-            alt="Google"
-            className={`${styles.logoimg} ${styles.googleIcon}`}
-          />
+        <button type="button" className={styles.socialButton}>
+          <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google" className={`${styles.logoimg} ${styles.googleIcon}`} />
           <span>Continue with Google</span>
         </button>
 
-        <button className={styles.socialButton}>
-          <img
-            src="https://img.icons8.com/color/48/microsoft.png"
-            alt="Microsoft"
-            className={`${styles.logoimg} ${styles.microsoftIcon}`}
-          />
+        <button type="button" className={styles.socialButton}>
+          <img src="https://img.icons8.com/color/48/microsoft.png" alt="Microsoft" className={`${styles.logoimg} ${styles.microsoftIcon}`} />
           <span className={styles.mcText}>Continue with Microsoft</span>
         </button>
 
         <p className={styles.register}>
-          Don't have an account?
-          <a href="/register"> Register</a>
+          Don't have an account? <Link to="/register"> Register</Link>
         </p>
-
       </form>
     </div>
   );
 }
+
 export default LoginCard;

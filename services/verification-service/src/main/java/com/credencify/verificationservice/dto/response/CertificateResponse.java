@@ -16,4 +16,7 @@ public class CertificateResponse {
     private String certificateHash;
     private String status;
     private LocalDateTime createdAt;
+    private String learnEmail;
+    private String institutionId;
+    private String learnerId;
 }

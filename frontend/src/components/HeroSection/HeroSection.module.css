@@ -6,21 +6,21 @@
 .hero {
     min-height: auto;
     display: flex;
-    
-    gap: 32px;
-    padding: 20px 40px;
-    padding-left: 90px;
+    gap: 60px;
+    padding: 0;
     justify-content: space-between;
     align-items: center;
     background: #f8fafc;
     width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
 }
 
 .left {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     min-width: 0;
 }
 
@@ -41,13 +41,12 @@
 }
 
 .right{
-    width: 400px;
-    max-width: 420px;
-    flex: 0 0 380px;
+    width: 480px;
+    max-width: 500px;
+    flex: 0 0 480px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-
+    align-items: center;
 }
 
 .featureList p{

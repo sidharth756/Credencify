@@ -6,25 +6,38 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.util.Map;
+
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleGeneric(Exception ex){
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
+
+    @ExceptionHandler(CertifcateNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleCertificateNotFound(CertifcateNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Map.of("error", true, "message", ex.getMessage()));
     }
 
     @ExceptionHandler(FeignException.NotFound.class)
-    public ResponseEntity<String> handleFeignNotFound(FeignException.NotFound ex){
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Resource not found on Microservices " + ex.getMessage());
+    public ResponseEntity<Map<String, Object>> handleFeignNotFound(FeignException.NotFound ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Map.of("error", true, "message", "Certificate not found on blockchain network."));
     }
 
     @ExceptionHandler(FeignException.class)
-    public ResponseEntity<String> handleFeignGeneric(FeignException ex){
-        return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("Downstream connection failed");
+    public ResponseEntity<Map<String, Object>> handleFeignGeneric(FeignException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY)
+                .body(Map.of("error", true, "message", "Failed to connect to downstream service. Please try again."));
     }
 
-    @ExceptionHandler(CertifcateNotFoundException.class)
-    public ResponseEntity<String> handleCertificateNotFound(CertifcateNotFoundException ex){
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<Map<String, Object>> handleRuntime(RuntimeException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Map.of("error", true, "message", ex.getMessage()));
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Map<String, Object>> handleGeneric(Exception ex) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(Map.of("error", true, "message", "An unexpected error occurred: " + ex.getMessage()));
     }
 }

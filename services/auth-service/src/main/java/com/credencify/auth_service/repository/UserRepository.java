@@ -10,6 +10,8 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<UserEntity,Long> {
 
     Optional<UserEntity> findByEmail(String email);
+    Optional<UserEntity> findByUserId(String userId);
     Boolean existsByEmail(String email);
+    Boolean existsByUserId(String userId);
+    Optional<UserEntity> findFirstByRoleAndUserIdStartingWithOrderByUserIdDesc(com.credencify.auth_service.enums.Role role, String prefix);
 }
-
