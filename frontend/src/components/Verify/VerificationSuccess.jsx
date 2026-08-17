@@ -47,9 +47,19 @@ function VerificationSuccess() {
     setScanLogs(["[INFO] File received: " + file.name, "[INFO] Sending to AI OCR service..."]);
     setScanProgress(10);
 
+    const savedUser = localStorage.getItem("user");
+    let verifiedBy = "Anonymous (Public)";
+    if (savedUser) {
+      try {
+        const u = JSON.parse(savedUser);
+        if (u.fullName) verifiedBy = `${u.fullName} (${u.role || "USER"})`;
+      } catch(e) {}
+    }
+
     const formData = new FormData();
     formData.append("file", file);
     formData.append("expectedCertificateId", certificate?.certificateId ?? "");
+    formData.append("verifiedBy", verifiedBy);
     const GW = "http://" + window.location.hostname + ":9000";
 
     let result = null;

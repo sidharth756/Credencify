@@ -146,7 +146,7 @@ function NavBar() {
             )}
           </div>
         ) : (
-          <button className={styles.signinbtn} onClick={() => navigate("/")}>
+          <button className={styles.signinbtn} onClick={() => navigate("/signin")}>
             Sign In
           </button>
         )}

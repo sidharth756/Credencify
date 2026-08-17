@@ -29,6 +29,12 @@ public class VerificationLog {
     @Column(columnDefinition = "TEXT")
     private String blockchainHash;
 
+    private String verificationType; // DIGITAL_HASH, AI_HARD_COPY_OCR
+
+    private String verifiedBy; // Anonymous (Public), User Name (Role)
+
+    private Integer matchScore; // 0 - 100 percentage match
+
     private String verifierIp;
 
     @Column(nullable = false)

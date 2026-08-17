@@ -28,8 +28,19 @@ function Verifying() {
       try {
         // ---- STEP 1: Fetching Credential ----
         setCurrentStep(1);
+        const savedUser = localStorage.getItem("user");
+        let verifiedByParam = "";
+        if (savedUser) {
+          try {
+            const u = JSON.parse(savedUser);
+            if (u.fullName) {
+              verifiedByParam = `?verifiedBy=${encodeURIComponent(u.fullName + " (" + (u.role || "USER") + ")")}`;
+            }
+          } catch(e) {}
+        }
+
         const response = await fetch(
-          `${GW}/api/v1.0/verify/${certificateId}`,
+          `${GW}/api/v1.0/verify/${certificateId}${verifiedByParam}`,
           {
             method: "GET",
             headers: {

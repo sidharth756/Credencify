@@ -1,39 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* ══════════════════════════════════════
-   SHELL — fills the full viewport, no scroll on shell itself
+   SHELL — fills the full viewport
 ══════════════════════════════════════ */
 .shell {
   display: flex;
   flex-direction: column;
-  height: 100vh;          /* exact viewport height */
-  overflow: hidden;       /* prevent outer scroll */
+  height: 100vh;
+  overflow: hidden;
   background: #f8fafc;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', 'Inter', sans-serif;
   color: #1e293b;
 }
 
 /* ══════════════════════════════════════
-   TOP NAVBAR — fixed height, never scrolls
+   TOP NAVBAR — matches main Navbar exactly
 ══════════════════════════════════════ */
 .topbar {
-  flex-shrink: 0;         /* never shrinks */
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  height: 64px;
+  height: 72px;
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
-  padding: 0 28px;
-  z-index: 100;
+  padding: 0 40px;
+  z-index: 1000;
   position: relative;
+  box-sizing: border-box;
 }
 
 .topbarLogo {
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 800;
-  color: #2563eb;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  color: #1d4ed8;
   text-decoration: none;
   letter-spacing: -0.5px;
   margin-right: auto;
@@ -42,108 +44,187 @@
 .topbarNav {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 30px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .navLink {
-  font-size: 14px;
-  font-weight: 500;
-  color: #475569;
   text-decoration: none;
-  transition: color 0.15s;
+  color: #1E3A5F;
+  font-size: 17px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  padding-bottom: 4px;
+  border-bottom: 2.5px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
 }
-.navLink:hover { color: #2563eb; }
+.navLink:hover { color: #2563EB; }
 
 .topbarRight {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 20px;
   position: relative;
 }
 
 /* Bell */
-.bellWrap { position: relative; cursor: pointer; display: flex; align-items: center; }
-.bellIcon { font-size: 20px; color: #64748b; }
+.bellWrap {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bellIcon { font-size: 20px; color: #475569; }
 .bellBadge {
-  position: absolute; top: -5px; right: -7px;
-  background: #ef4444; color: #fff;
-  font-size: 9px; font-weight: 700;
-  width: 16px; height: 16px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
+  position: absolute;
+  top: -4px; right: -6px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 2px solid #fff;
 }
 
 .notifDropdown {
-  position: absolute; top: calc(100% + 12px); right: 120px;
-  width: 280px; background: #fff;
-  border: 1px solid #e2e8f0; border-radius: 14px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-  padding: 16px; z-index: 200;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 170px;
+  width: 280px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+  padding: 16px;
+  z-index: 9999;
   animation: fadeIn 0.15s ease;
 }
 
 .notifTitle {
-  font-size: 14px; font-weight: 700; color: #0f172a;
-  margin-bottom: 8px; padding-bottom: 8px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+  font-family: 'Outfit', sans-serif;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
   border-bottom: 1px solid #f1f5f9;
 }
 
 .notifEmpty {
-  font-size: 12.5px; color: #64748b;
-  text-align: center; padding: 12px 6px;
+  font-size: 13px;
+  color: #64748b;
+  text-align: center;
+  padding: 16px 8px;
   line-height: 1.5;
 }
 
 /* Profile pill */
 .profilePill {
-  display: flex; align-items: center; gap: 10px;
-  cursor: pointer; padding: 4px 8px 4px 4px;
-  border-radius: 40px; transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 4px 8px 4px 4px;
+  border-radius: 30px;
+  transition: background 0.15s;
 }
 .profilePill:hover { background: #f1f5f9; }
+
 .avatar {
-  width: 38px; height: 38px; border-radius: 50%;
-  background: #dbeafe; color: #1d4ed8;
-  font-size: 14px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  user-select: none;
 }
-.userText { display: flex; flex-direction: column; line-height: 1.2; }
-.userName { font-size: 13.5px; font-weight: 700; color: #0f172a; }
+
+.userText { display: flex; flex-direction: column; text-align: left; }
+.userName { font-size: 13.5px; font-weight: 700; color: #0f172a; line-height: 1.2; }
 .userSub  { font-size: 11px; color: #64748b; font-weight: 500; }
-.chevron  { font-size: 14px; color: #94a3b8; }
+.chevron  { font-size: 16px; color: #475569; }
 
 /* Dropdown */
 .dropdown {
-  position: absolute; top: calc(100% + 12px); right: 0;
-  width: 230px; background: #fff;
-  border: 1px solid #e2e8f0; border-radius: 14px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-  overflow: hidden; z-index: 200;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 250px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+  padding: 16px;
+  z-index: 9999;
+  animation: fadeIn 0.15s ease;
 }
-.ddHeader { display: flex; align-items: center; gap: 12px; padding: 16px; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ddHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
 .ddAvatar {
-  width: 44px; height: 44px; border-radius: 50%;
-  background: #dbeafe; color: #1d4ed8;
-  font-size: 16px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
-.ddName  { font-size: 14px; font-weight: 700; color: #0f172a; }
-.ddEmail { font-size: 11.5px; color: #64748b; }
-.ddDivider { height: 1px; background: #f1f5f9; margin: 0 12px; }
+.ddName  { font-size: 14.5px; font-weight: 700; color: #0f172a; font-family: 'Outfit', sans-serif; }
+.ddEmail { font-size: 12px; color: #64748b; margin-top: 2px; }
+
+.ddDivider { height: 1px; background: #f1f5f9; margin: 6px 0; }
+
 .ddItem {
-  display: flex; align-items: center; gap: 10px;
-  width: 100%; padding: 10px 16px;
-  background: none; border: none;
-  font-size: 13.5px; font-weight: 500; font-family: inherit;
-  color: #334155; cursor: pointer; transition: background 0.12s; text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.15s ease;
 }
-.ddItem:hover    { background: #f8fafc; }
+.ddItem:hover    { background: #f8fafc; color: #1d4ed8; }
 .ddItemActive    { background: #eff6ff !important; color: #2563eb !important; font-weight: 600; }
 .ddLogout        { color: #ef4444 !important; }
+.ddLogout:hover  { background: #fef2f2 !important; color: #dc2626 !important; }
+
 
 /* ══════════════════════════════════════
    BODY — fills remaining height, no extra scroll

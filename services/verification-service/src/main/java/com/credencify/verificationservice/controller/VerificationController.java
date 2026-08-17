@@ -34,8 +34,10 @@ public class VerificationController {
     }
 
     @GetMapping("/{certificateId}")
-    public ResponseEntity<VerifyHashResponse> verifyCertificate(@PathVariable String certificateId) throws Exception {
-        VerifyHashResponse response = verificationService.verify(certificateId);
+    public ResponseEntity<VerifyHashResponse> verifyCertificate(
+            @PathVariable String certificateId,
+            @RequestParam(value = "verifiedBy", required = false) String verifiedBy) throws Exception {
+        VerifyHashResponse response = verificationService.verify(certificateId, verifiedBy);
         return ResponseEntity.ok(response);
     }
 
@@ -109,8 +111,9 @@ public class VerificationController {
     @PostMapping("/ai-audit")
     public ResponseEntity<AiAuditResponse> auditCertificate(
             @RequestParam("file") MultipartFile file,
-            @RequestParam(value = "expectedCertificateId", required = false) String expectedCertificateId) throws Exception {
-        return ResponseEntity.ok(verificationService.auditDocument(file, expectedCertificateId));
+            @RequestParam(value = "expectedCertificateId", required = false) String expectedCertificateId,
+            @RequestParam(value = "verifiedBy", required = false) String verifiedBy) throws Exception {
+        return ResponseEntity.ok(verificationService.auditDocument(file, expectedCertificateId, verifiedBy));
     }
 
     @GetMapping("/logs")

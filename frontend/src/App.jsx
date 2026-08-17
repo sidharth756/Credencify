@@ -4,6 +4,7 @@ import './App.css';
 
 import Welcome from './pages/Welcome/Welcome';
 import Register from './pages/Register/Register';
+import SignIn from './pages/SignIn/SignIn';
 import Contact from './pages/Contact/Contact';
 import VerifyPage from "./pages/Verify/Verify";
 import VerifyingPage from "./pages/Verify/Verifying";
@@ -22,6 +23,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Welcome />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/signin" element={<SignIn />} />
+      <Route path="/login" element={<SignIn />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/about" element={<AboutPage />} />
 

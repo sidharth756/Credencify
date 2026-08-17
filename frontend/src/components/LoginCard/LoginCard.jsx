@@ -38,8 +38,8 @@ function LoginCard() {
 
       if (response.ok) {
         localStorage.setItem("user", JSON.stringify(data));
-        // Force state update by triggering route event or reloading current page state
         window.dispatchEvent(new Event("storage"));
+        navigate("/");
       } else {
         setError(data.message || "Invalid email or password. Please try again.");
       }

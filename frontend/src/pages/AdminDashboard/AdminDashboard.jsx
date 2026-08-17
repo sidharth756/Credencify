@@ -742,13 +742,16 @@ export default function AdminDashboard() {
                       <tr>
                         <th>Timestamp</th>
                         <th>Certificate ID</th>
+                        <th>Type</th>
+                        <th>Verified By</th>
+                        <th>Match Score</th>
                         <th>Status</th>
                         <th>Blockchain Ledger Hash</th>
                       </tr>
                     </thead>
                     <tbody>
                       {verificationLogs.length === 0 ? (
-                        <tr><td colSpan="4" className={s.emptyCell}>No registry verifications logged yet.</td></tr>
+                        <tr><td colSpan="7" className={s.emptyCell}>No registry verifications logged yet.</td></tr>
                       ) : verificationLogs.map(l => (
                         <tr key={l.id}>
                           <td>{new Date(l.verifiedAt).toLocaleString()}</td>
@@ -756,8 +759,28 @@ export default function AdminDashboard() {
                           <td>
                             <span 
                               style={{
-                                background: l.status === "VERIFIED" ? "#e6f4ea" : l.status === "NOT_FOUND" ? "#fce8e6" : "#fef7e0",
-                                color: l.status === "VERIFIED" ? "#137333" : l.status === "NOT_FOUND" ? "#c5221f" : "#b06000",
+                                background: l.verificationType === "AI_HARD_COPY_OCR" ? "#eff6ff" : "#f1f5f9",
+                                color: l.verificationType === "AI_HARD_COPY_OCR" ? "#1d4ed8" : "#475569",
+                                padding: "3px 8px",
+                                borderRadius: "6px",
+                                fontWeight: "600",
+                                fontSize: "11.5px"
+                              }}
+                            >
+                              {l.verificationType === "AI_HARD_COPY_OCR" ? "AI OCR Audit" : "Digital Hash"}
+                            </span>
+                          </td>
+                          <td style={{ fontWeight: "500", color: "#334155" }}>
+                            {l.verifiedBy || "Anonymous (Public)"}
+                          </td>
+                          <td style={{ fontWeight: "700", color: (l.matchScore === null || l.matchScore === 100) ? "#16a34a" : l.matchScore >= 70 ? "#ca8a04" : "#dc2626" }}>
+                            {l.matchScore !== null && l.matchScore !== undefined ? `${l.matchScore}%` : "100%"}
+                          </td>
+                          <td>
+                            <span 
+                              style={{
+                                background: (l.status === "VERIFIED" || l.status === "AUTHENTIC") ? "#e6f4ea" : (l.status === "NOT_FOUND" || l.status === "TAMPERED") ? "#fce8e6" : "#fef7e0",
+                                color: (l.status === "VERIFIED" || l.status === "AUTHENTIC") ? "#137333" : (l.status === "NOT_FOUND" || l.status === "TAMPERED") ? "#c5221f" : "#b06000",
                                 padding: "4px 8px",
                                 borderRadius: "6px",
                                 fontWeight: "600",
@@ -767,7 +790,7 @@ export default function AdminDashboard() {
                               {l.status}
                             </span>
                           </td>
-                          <td style={{ fontFamily: "monospace", fontSize: "11px", color: "#64748b", maxWidth: "300px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                          <td style={{ fontFamily: "monospace", fontSize: "11px", color: "#64748b", maxWidth: "200px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                             {l.blockchainHash || "—"}
                           </td>
                         </tr>
@@ -967,13 +990,16 @@ export default function AdminDashboard() {
                         <tr>
                           <th>Timestamp</th>
                           <th>Certificate ID</th>
+                          <th>Type</th>
+                          <th>Verified By</th>
+                          <th>Match Score</th>
                           <th>Status</th>
                           <th>Blockchain Ledger Hash</th>
                         </tr>
                       </thead>
                       <tbody>
                         {verificationLogs.length === 0 ? (
-                          <tr><td colSpan="4" className={s.emptyCell}>No registry verifications logged yet.</td></tr>
+                          <tr><td colSpan="7" className={s.emptyCell}>No registry verifications logged yet.</td></tr>
                         ) : verificationLogs.map(l => (
                           <tr key={l.id}>
                             <td>{new Date(l.verifiedAt).toLocaleString()}</td>
@@ -981,8 +1007,28 @@ export default function AdminDashboard() {
                             <td>
                               <span 
                                 style={{
-                                  background: l.status === "VERIFIED" ? "#e6f4ea" : l.status === "NOT_FOUND" ? "#fce8e6" : "#fef7e0",
-                                  color: l.status === "VERIFIED" ? "#137333" : l.status === "NOT_FOUND" ? "#c5221f" : "#b06000",
+                                  background: l.verificationType === "AI_HARD_COPY_OCR" ? "#eff6ff" : "#f1f5f9",
+                                  color: l.verificationType === "AI_HARD_COPY_OCR" ? "#1d4ed8" : "#475569",
+                                  padding: "3px 8px",
+                                  borderRadius: "6px",
+                                  fontWeight: "600",
+                                  fontSize: "11.5px"
+                                }}
+                              >
+                                {l.verificationType === "AI_HARD_COPY_OCR" ? "AI OCR Audit" : "Digital Hash"}
+                              </span>
+                            </td>
+                            <td style={{ fontWeight: "500", color: "#334155" }}>
+                              {l.verifiedBy || "Anonymous (Public)"}
+                            </td>
+                            <td style={{ fontWeight: "700", color: (l.matchScore === null || l.matchScore === 100) ? "#16a34a" : l.matchScore >= 70 ? "#ca8a04" : "#dc2626" }}>
+                              {l.matchScore !== null && l.matchScore !== undefined ? `${l.matchScore}%` : "100%"}
+                            </td>
+                            <td>
+                              <span 
+                                style={{
+                                  background: (l.status === "VERIFIED" || l.status === "AUTHENTIC") ? "#e6f4ea" : (l.status === "NOT_FOUND" || l.status === "TAMPERED") ? "#fce8e6" : "#fef7e0",
+                                  color: (l.status === "VERIFIED" || l.status === "AUTHENTIC") ? "#137333" : (l.status === "NOT_FOUND" || l.status === "TAMPERED") ? "#c5221f" : "#b06000",
                                   padding: "4px 8px",
                                   borderRadius: "6px",
                                   fontWeight: "600",
@@ -992,7 +1038,7 @@ export default function AdminDashboard() {
                                 {l.status}
                               </span>
                             </td>
-                            <td style={{ fontFamily: "monospace", fontSize: "11px", color: "#64748b", maxWidth: "250px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                            <td style={{ fontFamily: "monospace", fontSize: "11px", color: "#64748b", maxWidth: "200px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                               {l.blockchainHash || "—"}
                             </td>
                           </tr>

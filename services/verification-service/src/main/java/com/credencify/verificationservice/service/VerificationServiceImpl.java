@@ -53,8 +53,15 @@ public class VerificationServiceImpl implements VerificationService {
 
     @Override
     public VerifyHashResponse verify(String certificateId) throws Exception {
+        return verify(certificateId, null);
+    }
+
+    @Override
+    public VerifyHashResponse verify(String certificateId, String verifiedBy) throws Exception {
         String logStatus = "VERIFIED";
         String logHash = null;
+        String actor = (verifiedBy != null && !verifiedBy.isBlank()) ? verifiedBy : "Anonymous (Public)";
+
         try {
             // 1. Get verification hash proof from blockchain
             VerifyHashResponse response = blockchainClient.getHash(certificateId);
@@ -92,8 +99,11 @@ public class VerificationServiceImpl implements VerificationService {
             try {
                 verificationLogRepository.save(VerificationLog.builder()
                         .certificateId(certificateId)
+                        .verificationType("DIGITAL_HASH")
+                        .verifiedBy(actor)
                         .status(logStatus)
                         .blockchainHash(logHash)
+                        .matchScore("VERIFIED".equals(logStatus) ? 100 : 0)
                         .verifiedAt(LocalDateTime.now())
                         .build());
             } catch (Exception logEx) {
@@ -154,6 +164,14 @@ public class VerificationServiceImpl implements VerificationService {
         s1 = s1.trim().toLowerCase();
         s2 = s2.trim().toLowerCase();
         if (s1.equals(s2)) return 1.0;
+
+        // If strings are identical when ignoring all spaces (e.g. "Sidharth RK" vs "Sidharth R K"), treat as 100% match
+        String s1NoSpace = s1.replaceAll("\\s+", "");
+        String s2NoSpace = s2.replaceAll("\\s+", "");
+        if (!s1NoSpace.isEmpty() && s1NoSpace.equalsIgnoreCase(s2NoSpace)) {
+            return 1.0;
+        }
+
         int len1 = s1.length();
         int len2 = s2.length();
         if (len1 == 0 || len2 == 0) return 0.0;
@@ -184,6 +202,11 @@ public class VerificationServiceImpl implements VerificationService {
 
     @Override
     public AiAuditResponse auditDocument(MultipartFile file, String expectedCertificateId) throws Exception {
+        return auditDocument(file, expectedCertificateId, null);
+    }
+
+    @Override
+    public AiAuditResponse auditDocument(MultipartFile file, String expectedCertificateId, String verifiedBy) throws Exception {
         String filename = file.getOriginalFilename();
         if (filename == null) filename = "";
 
@@ -331,6 +354,8 @@ public class VerificationServiceImpl implements VerificationService {
         // Determine verdict
         String verdict = matchScore == 100 ? "AUTHENTIC" : matchScore >= 70 ? "MISMATCH" : "TAMPERED";
 
+        String actor = (verifiedBy != null && !verifiedBy.isBlank()) ? verifiedBy : "Anonymous (Public)";
+
         // Save audit log to DB
         try {
             auditLogRepository.save(AuditLog.builder()
@@ -344,8 +369,18 @@ public class VerificationServiceImpl implements VerificationService {
                     .extractedCourse(extractedCourse)
                     .extractedInstitution(extractedInst)
                     .build());
+
+            verificationLogRepository.save(VerificationLog.builder()
+                    .certificateId(certificateId)
+                    .verificationType("AI_HARD_COPY_OCR")
+                    .verifiedBy(actor)
+                    .status(verdict)
+                    .blockchainHash(registeredCert.getCertificateHash())
+                    .matchScore(matchScore)
+                    .verifiedAt(LocalDateTime.now())
+                    .build());
         } catch (Exception logEx) {
-            System.err.println("[LOG] Failed to save AuditLog: " + logEx.getMessage());
+            System.err.println("[LOG] Failed to save AuditLog/VerificationLog: " + logEx.getMessage());
         }
 
         return AiAuditResponse.builder()

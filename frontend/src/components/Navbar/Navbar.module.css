@@ -47,11 +47,11 @@
 }
 
 .logo h2 {
-    font-size: 28px;
-    font-weight: bold;
-    font-family: "ADLaM Display", sans-serif;
-    color: #2563EB;
-    letter-spacing: 1px;
+    font-size: 26px;
+    font-weight: 800;
+    font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1d4ed8;
+    letter-spacing: -0.5px;
     margin: 0;
 }
 
