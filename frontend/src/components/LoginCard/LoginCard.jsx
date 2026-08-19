@@ -105,9 +105,7 @@ function LoginCard() {
 
         <div className={styles.divider}>
           <span></span>Or sign in with<span></span>
-        </div>
-
-        <button type="button" className={styles.socialButton}>
+        </div>        <button type="button" className={styles.socialButton}>
           <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google" className={`${styles.logoimg} ${styles.googleIcon}`} />
           <span>Continue with Google</span>
         </button>
@@ -125,4 +123,4 @@ function LoginCard() {
   );
 }
 
-export default LoginCard;
+export default LoginCar
