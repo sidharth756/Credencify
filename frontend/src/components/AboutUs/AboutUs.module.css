@@ -1,0 +1,228 @@
+.aboutSection {
+  background: #ffffff;
+  padding: 60px 8%;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  max-width: 1250px;
+  margin: auto;
+}
+
+.heading {
+  color: #0d47a1;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+.left {
+  flex: 1;
+}
+
+.left h2 {
+  font-size: 36px;
+  color: #1b2b52;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.left p {
+  color: #666;
+  line-height: 1.8;
+}
+
+.right {
+  flex: 1;
+  text-align: center;
+}
+
+.right img {
+  width: 100%;
+  max-width: 450px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 30px;
+  margin: 60px 0;
+}
+
+.card {
+  background: #edf5ff;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.card h3 {
+  color: #1b2b52;
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #666;
+  line-height: 1.7;
+}
+
+.trust {
+  text-align: center;
+  margin: 70px 0;
+}
+
+.trust h2 {
+  color: #1b2b52;
+  margin-bottom: 15px;
+}
+
+.trust p {
+  color: #666;
+}
+
+.powered {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.powered h3 {
+  margin-bottom: 40px;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 25px;
+}
+
+.techCard {
+  padding: 25px;
+  border: 2px solid #dceeff;
+  border-radius: 12px;
+  transition: .3s;
+}
+
+.techCard:hover {
+  transform: translateY(-6px);
+  border-color: #2196f3;
+}
+
+.techCard img {
+  width: 55px;
+  margin-bottom: 15px;
+}
+
+.techCard h4 {
+  margin-bottom: 10px;
+}
+
+.techCard p {
+  color: #666;
+  font-size: 14px;
+}
+
+.blockchainSection {
+  background: #edf5ff;
+  border-radius: 15px;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  margin-bottom: 70px;
+}
+
+.features {
+  flex: 1;
+}
+
+.features h2 {
+  margin-bottom: 35px;
+  color: #1b2b52;
+}
+
+.features div {
+  margin-bottom: 25px;
+}
+
+.icon {
+  color: #1f6bff;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.imageBox {
+  flex: 1;
+  text-align: center;
+}
+
+.imageBox img {
+  width: 100%;
+  max-width: 300px;
+}
+
+.bottomGrid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  text-align: center;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.bottomIcon {
+  font-size: 50px;
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+.bottomGrid p {
+  color: #666;
+}
+
+.institutions {
+  text-align: center;
+}
+
+.logoRow {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #1b2b52;
+}
+
+@media(max-width:992px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.techGrid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.blockchainSection{
+flex-direction:column;
+}
+
+.bottomGrid{
+grid-template-columns:1fr;
+}
+
+}
+

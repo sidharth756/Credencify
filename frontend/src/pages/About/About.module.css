@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanchenjunga:wght@400;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+.page {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  color: #1e293b;
+}
+
+/* ─── 1. HERO ─── */
+.heroSection {
+  background: linear-gradient(135deg, #f0f6ff 0%, #ffffff 55%, #eef5ff 100%);
+  border-bottom: 1px solid #e2ecff;
+  padding: 64px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1d4ed8;
+  width: fit-content;
+}
+
+.eyebrowDot {
+  width: 7px; height: 7px;
+  background: #3b82f6;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.heroTitle {
+  font-size: 38px;
+  font-weight: 800;
+  font-family: 'Kanchenjunga', 'Outfit', sans-serif;
+  color: #0f2a6e;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.heroSub {
+  font-size: 15.5px;
+  color: #52687a;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 26px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(29,78,216,0.28);
+  transition: all 0.2s ease;
+}
+
+.primaryBtn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(29,78,216,0.38); }
+
+.outlineBtn {
+  background: transparent;
+  color: #1d4ed8;
+  border: 2px solid #1d4ed8;
+  border-radius: 10px;
+  padding: 11px 24px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.outlineBtn:hover { background: #eff6ff; transform: translateY(-2px); }
+
+/* Mission/Vision cards */
+.heroRight { display: flex; align-items: stretch; }
+
+.missionVisionGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.mvCard {
+  background: #ffffff;
+  border: 1.5px solid #e2ecff;
+  border-radius: 18px;
+  padding: 24px 26px;
+  box-shadow: 0 4px 16px rgba(29,78,216,0.05);
+  transition: all 0.2s ease;
+}
+
+.mvCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(29,78,216,0.09);
+  border-color: #bfdbfe;
+}
+
+.mvIcon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.mvTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f2a6e;
+  margin-bottom: 8px;
+}
+
+.mvDesc {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── 2. TRUST BANNER ─── */
+.trustBanner {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+  padding: 52px 40px;
+  text-align: center;
+}
+
+.trustContainer {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.trustTitle {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+}
+
+.trustSub {
+  font-size: 16px;
+  color: #bfdbfe;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ─── SECTION COMMONS ─── */
+.section {
+  padding: 72px 40px;
+  background: #ffffff;
+}
+
+.sectionAlt {
+  padding: 72px 40px;
+  background: #f8fafc;
+}
+
+.brandsSection {
+  padding: 72px 40px;
+  background: #ffffff;
+  border-top: 1px solid #e2ecff;
+}
+
+.sectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f2a6e;
+  margin-bottom: 40px;
+  letter-spacing: -0.3px;
+}
+
+.sectionEyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1d4ed8;
+  letter-spacing: 0.6px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+/* ─── TECH STACK ─── */
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.techCard {
+  background: #ffffff;
+  border: 1.5px solid #e2ecff;
+  border-radius: 16px;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(29,78,216,0.04);
+}
+
+.techCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(29,78,216,0.09);
+  border-color: #bfdbfe;
+}
+
+.techIconBox {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.techLabel {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f2a6e;
+}
+
+.techSub {
+  font-size: 12.5px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* ─── WHY BLOCKCHAIN ─── */
+.whyRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.whyLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.whyList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 0;
+}
+
+.whyItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1.5px solid #e2ecff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(29,78,216,0.04);
+  transition: all 0.2s ease;
+}
+
+.whyItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(29,78,216,0.08);
+  border-color: #bfdbfe;
+}
+
+.whyIcon {
+  width: 48px; height: 48px;
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.whyItemTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f2a6e;
+  margin-bottom: 5px;
+}
+
+.whyItemDesc {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.55;
+}
+
+/* Blockchain visual */
+.whyRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blockchainVisual {
+  width: 260px; height: 260px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blockchainNode {
+  width: 100px; height: 100px;
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 2;
+  box-shadow: 0 8px 28px rgba(29,78,216,0.35);
+}
+
+.blockchainRing1 {
+  position: absolute;
+  width: 180px; height: 180px;
+  border: 2px solid rgba(59,130,246,0.2);
+  border-radius: 50%;
+  animation: rotate 12s linear infinite;
+}
+
+.blockchainRing2 {
+  position: absolute;
+  width: 250px; height: 250px;
+  border: 2px dashed rgba(59,130,246,0.12);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite reverse;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ─── STATS ─── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.statCard {
+  background: #f8fafc;
+  border: 1.5px solid #e2ecff;
+  border-radius: 20px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(29,78,216,0.04);
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(29,78,216,0.09);
+  border-color: #bfdbfe;
+  background: #ffffff;
+}
+
+.statIconBox {
+  width: 60px; height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 14px rgba(29,78,216,0.2);
+}
+
+.statValue {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f2a6e;
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-size: 15px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.statSub {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* ─── BRANDS ─── */
+.brandsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 28px;
+  padding: 12px 0;
+}
+
+.brandItem {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  user-select: none;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.brandItem:hover { opacity: 1; transform: scale(1.05); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .heroContainer, .whyRow {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .heroSection, .section, .sectionAlt, .brandsSection { padding: 48px 24px; }
+  .techGrid { grid-template-columns: repeat(2, 1fr); }
+  .statsGrid { grid-template-columns: 1fr; }
+  .trustBanner { padding: 40px 24px; }
+}
+
+@media (max-width: 640px) {
+  .heroTitle { font-size: 28px; }
+  .heroCtas { flex-direction: column; }
+  .techGrid { grid-template-columns: 1fr 1fr; }
+  .blockchainVisual { width: 200px; height: 200px; }
+}

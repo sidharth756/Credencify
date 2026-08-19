@@ -1,0 +1,40 @@
+(venv) PS D:\Programming\SpringBoot\Credencify-v1\Credencify\services\ai-service> python -c "import os; os.environ['FLAGS_use_onednn']='0'; os.environ['FLAGS_use_mkldnn']='0'; from paddleocr import PaddleOCR; ocr = PaddleOCR(lang='en'); result = ocr.ocr(r'C:\Users\sidha\.gemini\antigravity-ide\brain\1957e15b-de56-4135-8746-b90c73c21ef7\alice_vance_cert_1786681267181.png'); print('\n=== EXTRACTED TEXT ==='); [print(line[1][0]) for line in result[0]]"
+INFO: Could not find files for the given pattern(s).
+D:\Programming\SpringBoot\Credencify-v1\Credencify\services\ai-service\venv\lib\site-packages\paddle\utils\cpp_extension\extension_utils.py:712: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+Creating model: ('PP-LCNet_x1_0_doc_ori', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\sidha\.paddlex\official_models\PP-LCNet_x1_0_doc_ori`.
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I0814 10:13:24.813773 33968 onednn_context.cc:81] oneDNN v3.6.2
+Creating model: ('UVDoc', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\sidha\.paddlex\official_models\UVDoc`.
+Creating model: ('PP-LCNet_x1_0_textline_ori', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\sidha\.paddlex\official_models\PP-LCNet_x1_0_textline_ori`.
+Creating model: ('PP-OCRv6_medium_det', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\sidha\.paddlex\official_models\PP-OCRv6_medium_det`.
+Creating model: ('PP-OCRv6_medium_rec', None, None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `C:\Users\sidha\.paddlex\official_models\PP-OCRv6_medium_rec`.
+<string>:1: DeprecationWarning: Please use `predict` instead.
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "D:\Programming\SpringBoot\Credencify-v1\Credencify\services\ai-service\venv\lib\site-packages\typing_extensions.py", line 3140, in wrapper
+    return arg(*args, **kwargs)
+  File "D:\Programming\SpringBoot\Credencify-v1\Credencify\services\ai-service\venv\lib\site-packages\paddleocr\_pipelines\ocr.py", line 241, in ocr
+    return self.predict(img, **kwargs)
+  File "D:\Programming\SpringBoot\Credencify-v1\Credencify\services\ai-service\venv\lib\site-packages\paddleocr\_pipelines\ocr.py", line 223, in predict
+    return list(
+  File "D:\Programming\SpringBoot\Credencify-v1\Credencify\services\ai-service\venv\lib\site-packages\paddlex\inference\pipelines\_parallel.py", line 161, in predict
+    yield from self._pipeline.predict(
+  File "D:\Programming\SpringBoot\Credencify-v1\Credencify\services\ai-service\venv\lib\site-packages\paddlex\inference\pipelines\ocr\pipeline.py", line 366, in predict
+    det_results = list(
+  File "D:\Programming\SpringBoot\Credencify-v1\Credencify\services\ai-service\venv\lib\site-packages\paddlex\inference\models\predictors\base_predictor.py", line 117, in __call__
+    yield from self.apply(input, **kwargs)
+  File "D:\Programming\SpringBoot\Credencify-v1\Credencify\services\ai-service\venv\lib\site-packages\paddlex\inference\models\predictors\base_predictor.py", line 140, in apply
+    pred = self.process(batch_data, **kwargs)
+  File "D:\Programming\SpringBoot\Credencify-v1\Credencify\services\ai-service\venv\lib\site-packages\paddlex\inference\models\text_detection\predictor.py", line 145, in process
+    batch_preds = self.runner(x=x)
+  File "D:\Programming\SpringBoot\Credencify-v1\Credencify\services\ai-service\venv\lib\site-packages\paddlex\inference\models\runners\paddle_static\runner.py", line 297, in __call__
+    pred = self.infer(x)
+  File "D:\Programming\SpringBoot\Credencify-v1\Credencify\services\ai-service\venv\lib\site-packages\paddlex\inference\models\runners\paddle_static\runner.py", line 265, in __call__
+    self.predictor.run()
+NotImplementedError: (Unimplemented) ConvertPirAttribute2RuntimeAttribute not support [pir::ArrayAttribute<pir::DoubleAttribute>]  (at ..\paddle\fluid\framework\new_executor\instruction\onednn\onednn_instruction.cc:118)

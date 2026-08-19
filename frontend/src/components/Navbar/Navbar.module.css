@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=League+Spartan:wght@100..900&family=Outfit:wght@100..900&display=swap');
+
+.navbar {
+    width: 100%;
+    height: 72px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.navlinks {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navlinks a {
+    text-decoration: none;
+    color: #1E3A5F;
+    font-size: 17px;
+    font-family: "Outfit", sans-serif;
+    font-weight: 500;
+    padding-bottom: 4px;
+    border-bottom: 2.5px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.navlinks a:hover {
+    color: #2563EB;
+}
+
+.activeLink {
+    color: #2563EB !important;
+    font-weight: 600 !important;
+    border-bottom-color: #2563EB !important;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.logo h2 {
+    font-size: 26px;
+    font-weight: 800;
+    font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1d4ed8;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.rightNav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.guestMenu {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.profileIconBtn {
+    background: none;
+    border: none;
+    color: #1E3A5F;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
+    transition: color 0.2s, background 0.2s;
+}
+
+.profileIconBtn:hover {
+    color: #2563EB;
+    background: #f1f5f9;
+}
+
+.signinbtn {
+    background-color: #2563EB;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    height: 40px;
+    padding: 0 22px;
+    font-family: "Outfit", sans-serif;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.signinbtn:hover {
+    background: #1D4ED8;
+}
+
+.userMenu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navBellWrapper {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBellIcon {
+    font-size: 20px;
+    color: #475569;
+}
+
+.navBellBadge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    background: #ef4444;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+.profilePillTrigger {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 4px 8px 4px 4px;
+    border-radius: 30px;
+    transition: background 0.15s ease;
+}
+
+.navUserInfoText {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.navUserName {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.navUserSubtitle {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.profilePillTrigger:hover {
+    background: #f1f5f9;
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: "Outfit", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.dropdownChevron {
+    font-size: 16px;
+    color: #475569;
+}
+
+.dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    width: 250px;
+    padding: 16px;
+    z-index: 9999;
+    animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdownUserRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.dropdownAvatarLarge {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.dropdownUserInfo {
+    overflow: hidden;
+}
+
+.dropdownName {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #0f172a;
+    font-family: "Outfit", sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdownEmail {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 400;
+    font-family: "Outfit", sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 2px;
+}
+
+.dropdownMenuBox {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dropdownDivider {
+    height: 1px;
+    background: #f1f5f9;
+    margin: 6px 0;
+}
+
+.dropdownItem {
+    width: 100%;
+    padding: 10px 14px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 14px;
+    font-family: "Outfit", sans-serif;
+    font-weight: 500;
+    color: #334155;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 10px;
+    transition: all 0.15s ease;
+}
+
+.itemIcon {
+    font-size: 17px;
+    color: #475569;
+}
+
+.dropdownItem:hover {
+    background: #f8fafc;
+    color: #1d4ed8;
+}
+
+.dropdownItem:hover .itemIcon {
+    color: #1d4ed8;
+}
+
+.activeDropdownItem {
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    font-weight: 600 !important;
+}
+
+.activeDropdownItem .itemIcon {
+    color: #1d4ed8 !important;
+}
+
+.logoutItem {
+    color: #ef4444;
+}
+
+.logoutItem .itemIcon {
+    color: #ef4444;
+}
+
+.logoutItem:hover {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.logoutItem:hover .itemIcon {
+    color: #dc2626;
+}
+
+.notifDropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 170px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    width: 280px;
+    padding: 16px;
+    z-index: 9999;
+    animation: fadeIn 0.15s ease;
+}
+
+.notifTitle {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #0f172a;
+    font-family: "Outfit", sans-serif;
+    margin: 0 0 12px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.notifEmpty {
+    font-size: 13px;
+    color: #64748b;
+    text-align: center;
+    padding: 16px 8px;
+    line-height: 1.5;
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 16px;
+        height: 64px;
+    }
+    .navlinks {
+        display: none;
+    }
+}
