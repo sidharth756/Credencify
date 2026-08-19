@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="016aa56b-e911-4ff4-a615-efa525f7a223" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/LoginCard/LoginCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/LoginCard/LoginCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar/Navbar.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Verify/VerificationSuccess.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Verify/VerificationSuccess.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Verify/Verifying.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Verify/Verifying.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/About/About.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/About/About.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AdminDashboard/AdminDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AdminDashboard/AdminDashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AdminDashboard/AdminDashboard.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AdminDashboard/AdminDashboard.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Contact/Contact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Contact/Contact.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignIn/SignIn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignIn/SignIn.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignIn/SignIn.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SignIn/SignIn.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Welcome/Welcome.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Welcome/Welcome.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Welcome/Welcome.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Welcome/Welcome.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/verification-service/src/main/java/com/credencify/verificationservice/controller/VerificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/verification-service/src/main/java/com/credencify/verificationservice/controller/VerificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/verification-service/src/main/java/com/credencify/verificationservice/entity/VerificationLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/verification-service/src/main/java/com/credencify/verificationservice/entity/VerificationLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/verification-service/src/main/java/com/credencify/verificationservice/service/VerificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/verification-service/src/main/java/com/credencify/verificationservice/service/VerificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/verification-service/src/main/java/com/credencify/verificationservice/service/VerificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/verification-service/src/main/java/com/credencify/verificationservice/service/VerificationServiceImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="016aa56b-e911-4ff4-a615-efa525f7a223" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -215,6 +194,7 @@
       <workItem from="1786603066130" duration="29000" />
       <workItem from="1786603159874" duration="20884000" />
       <workItem from="1786682407226" duration="10585000" />
+      <workItem from="1786942464906" duration="155000" />
     </task>
     <servers />
   </component>
